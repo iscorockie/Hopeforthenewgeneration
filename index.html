@@ -510,6 +510,198 @@ footer{background:#030B06;padding:72px clamp(20px,5vw,64px) 30px}
   .hero-circle-1,.hero-circle-2{display:none}
   .sec-top{flex-direction:column;align-items:flex-start}
   .testi-head{flex-direction:column;align-items:flex-start}
+  .founder-layout{grid-template-columns:1fr}
+  .founder-img-col{display:none}
+  .team-grid{grid-template-columns:1fr}
+}
+
+/* ── FOUNDER SECTION ── */
+.founder-sec{
+  background:var(--ink);padding:0;
+  position:relative;overflow:hidden;
+}
+.founder-sec::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 0% 50%,rgba(37,196,122,.1) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 100% 20%,rgba(245,91,27,.08) 0%,transparent 55%);
+  pointer-events:none;
+}
+.founder-layout{
+  display:grid;grid-template-columns:1fr 1.1fr;
+  min-height:640px;position:relative;z-index:1;
+  max-width:1400px;margin:0 auto;
+}
+.founder-img-col{
+  position:relative;overflow:hidden;
+}
+.founder-img-placeholder{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#0A2819 0%,#1A5C3A 60%,#0A2819 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.founder-initials-bg{
+  width:220px;height:220px;border-radius:50%;
+  background:rgba(37,196,122,.12);border:2px solid rgba(37,196,122,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:72px;font-weight:800;
+  color:rgba(37,196,122,.5);letter-spacing:-4px;
+  position:relative;
+}
+.founder-initials-bg::before{
+  content:'';position:absolute;
+  width:270px;height:270px;border-radius:50%;
+  border:1px solid rgba(37,196,122,.1);
+}
+.founder-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 40%,var(--ink) 100%);
+  z-index:2;
+}
+/* Replace the placeholder with a real photo: */
+/* .founder-img-placeholder img { width:100%; height:100%; object-fit:cover; object-position:top center; } */
+.founder-content-col{
+  padding:80px 64px 80px 48px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.founder-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,190,58,.1);border:1px solid rgba(255,190,58,.25);
+  color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 14px;border-radius:var(--r-full);margin-bottom:28px;
+}
+.founder-quote-mark{
+  font-family:Georgia,serif;font-size:120px;line-height:.6;
+  color:var(--fire);opacity:.18;margin-bottom:8px;display:block;
+}
+.founder-message{
+  font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.82);
+  line-height:1.75;font-weight:300;font-style:italic;
+  margin-bottom:32px;
+}
+.founder-message strong{color:#fff;font-weight:600;font-style:normal}
+.founder-sig-row{
+  display:flex;align-items:center;gap:18px;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.08);
+  margin-bottom:36px;
+}
+.founder-avatar{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-m),var(--green-b));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:20px;font-weight:800;color:#fff;
+  flex-shrink:0;border:2px solid rgba(37,196,122,.4);
+}
+.founder-name{
+  font-family:var(--font-head);font-size:20px;font-weight:800;
+  color:#fff;letter-spacing:-0.3px;
+}
+.founder-title{font-size:13px;color:rgba(255,255,255,.5);margin-top:2px}
+.founder-badges{display:flex;flex-wrap:wrap;gap:8px}
+.f-badge{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.55);font-size:11px;font-weight:600;
+  padding:6px 13px;border-radius:var(--r-full);letter-spacing:.3px;
+  transition:background .2s,color .2s;
+}
+.f-badge:hover{background:rgba(37,196,122,.15);color:var(--green-b);border-color:rgba(37,196,122,.25)}
+.f-badge.hl{background:rgba(245,91,27,.12);border-color:rgba(245,91,27,.25);color:rgba(255,140,100,.9)}
+.founder-social{
+  display:inline-flex;align-items:center;gap:7px;margin-top:24px;
+  color:rgba(255,255,255,.4);font-size:12px;font-weight:600;
+  text-decoration:none;transition:color .2s;
+}
+.founder-social:hover{color:var(--green-b)}
+.founder-social svg{width:15px;height:15px}
+
+/* ── TEAM SECTION ── */
+.team-sec{background:var(--cream);padding:96px clamp(20px,5vw,64px)}
+.team-sec .sec-inner{max-width:1160px;margin:0 auto}
+.team-top{text-align:center;margin-bottom:64px}
+.team-top .sec-sub{margin:14px auto 0;max-width:520px}
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+/* Founder card gets 2-col span */
+.team-card{
+  background:#fff;border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--border);box-shadow:var(--shadow-s);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  position:relative;
+}
+.team-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-l)}
+.team-card.founder-card{grid-column:span 2}
+.tc-top{
+  height:180px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.founder-card .tc-top{height:220px}
+.tc-top-bg-1{background:linear-gradient(135deg,#073B24 0%,#1A8C57 100%)}
+.tc-top-bg-2{background:linear-gradient(135deg,#1A2260 0%,#2E4DA8 100%)}
+.tc-top-bg-3{background:linear-gradient(135deg,#3D1060 0%,#7B2AA8 100%)}
+.tc-top-bg-4{background:linear-gradient(135deg,#5A1E00 0%,#A83600 100%)}
+.tc-top-bg-5{background:linear-gradient(135deg,#1A3828 0%,#0F5C38 100%)}
+.tc-initials{
+  font-family:var(--font-head);font-size:48px;font-weight:800;
+  color:rgba(255,255,255,.18);letter-spacing:-3px;
+  user-select:none;
+}
+.founder-card .tc-initials{font-size:72px}
+.tc-role-tag{
+  position:absolute;bottom:14px;left:14px;
+  background:rgba(0,0,0,.35);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.85);font-size:10px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:5px 11px;border-radius:var(--r-full);
+}
+.tc-body{padding:22px 24px 26px}
+.founder-card .tc-body{padding:24px 28px 28px}
+.tc-name{
+  font-family:var(--font-head);font-size:18px;font-weight:800;
+  color:var(--ink);letter-spacing:-0.3px;margin-bottom:3px;
+}
+.founder-card .tc-name{font-size:22px}
+.tc-position{font-size:12px;font-weight:700;color:var(--green-m);margin-bottom:10px;letter-spacing:.3px}
+.tc-bio{font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:16px}
+.tc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tc-tag{
+  font-size:10px;font-weight:700;padding:4px 10px;
+  border-radius:var(--r-full);background:var(--green-p);color:#074D2A;
+}
+.founder-card .tc-tag{font-size:11px;padding:5px 12px}
+.tc-links{display:flex;gap:8px}
+.tc-link{
+  width:30px;height:30px;border-radius:8px;
+  background:#F3F4F6;display:flex;align-items:center;justify-content:center;
+  color:var(--muted);text-decoration:none;font-size:12px;font-weight:700;
+  transition:background .2s,color .2s;
+}
+.tc-link:hover{background:var(--ink);color:#fff}
+.tc-link.x-link:hover{background:#000;color:#fff}
+.team-placeholder{
+  border:2px dashed #D1D5DB;background:transparent;
+  box-shadow:none;display:flex;align-items:center;justify-content:center;
+  min-height:320px;transition:border-color .2s,background .2s;
+}
+.team-placeholder:hover{background:var(--green-p);border-color:var(--green-m);transform:none;box-shadow:none}
+.ph-inner{text-align:center;padding:24px}
+.ph-icon{font-size:32px;margin-bottom:12px;display:block;opacity:.4}
+.ph-label{font-size:13px;font-weight:700;color:var(--muted)}
+.ph-sub{font-size:12px;color:#A0ABA3;margin-top:4px}
+
+@media(max-width:960px){
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .team-card.founder-card{grid-column:span 2}
+  .founder-content-col{padding:60px 40px}
+}
+@media(max-width:640px){
+  .team-grid{grid-template-columns:1fr}
+  .team-card.founder-card{grid-column:span 1}
+  .founder-content-col{padding:48px 24px}
+  .founder-message{font-size:16px}
 }
 </style>
 </head>
@@ -528,6 +720,7 @@ footer{background:#030B06;padding:72px clamp(20px,5vw,64px) 30px}
     <li><a href="#impact">Impact</a></li>
     <li><a href="#trust">Reports</a></li>
     <li><a href="#stories">Stories</a></li>
+    <li><a href="#team">Our Team</a></li>
     <li><a href="#donate" class="nav-cta">Donate Now ↑</a></li>
   </ul>
   <button class="nav-burger" id="burger" aria-label="Menu">
@@ -827,6 +1020,174 @@ footer{background:#030B06;padding:72px clamp(20px,5vw,64px) 30px}
 
 <!-- CTA BELT -->
 <div class="cta-belt">
+
+<!-- ── WORD FROM THE FOUNDER ── -->
+<section class="founder-sec" id="founder">
+  <div class="founder-layout">
+    <!-- Left: Photo column -->
+    <div class="founder-img-col">
+      <div class="founder-img-placeholder">
+        <!-- Replace with: <img src="ivan-magomu.jpg" alt="Ivan Magomu — Founder &amp; CEO"> -->
+        <div class="founder-initials-bg">IM</div>
+      </div>
+      <div class="founder-img-overlay"></div>
+    </div>
+    <!-- Right: Message -->
+    <div class="founder-content-col">
+      <div class="founder-kicker">✦ Word from the Founder</div>
+      <span class="founder-quote-mark">"</span>
+      <p class="founder-message">
+        Growing up, I saw first-hand how <strong>sport saved lives in Eastern Uganda</strong> — not just bodies, but minds, futures, and entire families. Rugby gave me discipline, purpose, a scholarship, and eventually a path to law. It took me to the Commonwealth Games and the Rugby World Cup. But I never forgot where I came from.
+      </p>
+      <p class="founder-message" style="margin-top:-16px">
+        Back in Mbale, I watched brilliant children with no access to school materials, talented athletes with no pitch to play on, and young women with no safe space to grow. I knew that the same transformative power sport and education gave me <strong>belonged to every single one of them.</strong> That conviction founded Hope for the Next Generation.
+      </p>
+      <p class="founder-message" style="margin-top:-16px">
+        We are not a charity that hands out relief and moves on. We build <strong>resilience, rights, and real opportunity</strong> — one child, one athlete, one family at a time. When you support HNG, you are not donating to an organisation. You are investing in the next generation of Ugandan leaders. And I give you my word: <strong>every shilling reaches them.</strong>
+      </p>
+      <div class="founder-sig-row">
+        <div class="founder-avatar">IM</div>
+        <div>
+          <div class="founder-name">Ivan Magomu</div>
+          <div class="founder-title">Founder &amp; CEO — Hope for the Next Generation</div>
+        </div>
+      </div>
+      <div class="founder-badges">
+        <span class="f-badge hl">🏉 Uganda Rugby Cranes Captain</span>
+        <span class="f-badge hl">⚖️ Sports Lawyer</span>
+        <span class="f-badge">Commonwealth Games 2018 — Gold Coast</span>
+        <span class="f-badge">Rugby World Cup Sevens 2018 — San Francisco</span>
+        <span class="f-badge">Club Captain, Stanbic Black Pirates RFC</span>
+        <span class="f-badge">LLB, Uganda Christian University</span>
+        <span class="f-badge">LeO Africa YELP Fellow 2023</span>
+        <span class="f-badge">Athletes Rights Champion</span>
+      </div>
+      <a href="https://x.com/ivan_magomu" target="_blank" rel="noopener" class="founder-social">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.402 6.231H2.744l7.737-8.854L1.57 2.25h6.92l4.258 5.636L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        Follow Ivan on X / Twitter @ivan_magomu →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM SECTION ── -->
+<section class="team-sec" id="team">
+  <div class="sec-inner">
+    <div class="team-top">
+      <span class="sec-kicker">The People Behind the Mission</span>
+      <h2 class="sec-h">Meet Our <em>Team</em></h2>
+      <p class="sec-sub">A passionate group of lawyers, educators, athletes, and community builders — united by one purpose: transforming the next generation in Mbale.</p>
+    </div>
+    <div class="team-grid">
+
+      <!-- IVAN MAGOMU — Founder (spans 2 cols) -->
+      <div class="team-card founder-card ru">
+        <div class="tc-top tc-top-bg-1">
+          <div class="tc-initials">IM</div>
+          <div class="tc-role-tag">Founder &amp; CEO</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-name">Ivan Magomu</div>
+          <div class="tc-position">Founder &amp; CEO · Sports Lawyer · Uganda Rugby Cranes Captain</div>
+          <p class="tc-bio">Ivan is a practising Sports Lawyer (Senior Associate, AF Mpanga Advocates), Captain of the Uganda Rugby 15's National Team, and Club Captain at Stanbic Black Pirates RFC. A Commonwealth Games and Rugby World Cup Sevens representative, Ivan founded HNG to channel the transformative power of sport and education back into his home community of Mbale. He holds an LLB from Uganda Christian University, a Bar Course diploma from the Law Development Centre, and is a LeO Africa YELP Fellow (2023).</p>
+          <div class="tc-tags">
+            <span class="tc-tag">🏉 Uganda Rugby Cranes</span>
+            <span class="tc-tag">⚖️ Sports &amp; Human Rights Law</span>
+            <span class="tc-tag">Commonwealth Games 2018</span>
+            <span class="tc-tag">RWC Sevens 2018</span>
+            <span class="tc-tag">Athletes Rights Champion</span>
+            <span class="tc-tag">NGO Bureau Registered</span>
+          </div>
+          <div class="tc-links">
+            <a href="https://x.com/ivan_magomu" target="_blank" rel="noopener" class="tc-link x-link" title="X / Twitter">𝕏</a>
+            <a href="https://www.linkedin.com/in/magomu-ivan-73aa0b206/" target="_blank" rel="noopener" class="tc-link" title="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM MEMBER 2 -->
+      <div class="team-card ru">
+        <div class="tc-top tc-top-bg-2">
+          <div class="tc-initials">PM</div>
+          <div class="tc-role-tag">Programmes Director</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-name">[Programmes Director]</div>
+          <div class="tc-position">Head of Education &amp; Life-Skills</div>
+          <p class="tc-bio">Placeholder — add your Programmes Director's name, background, and credentials here. This person oversees all four impact tracks and community partnerships across Mbale.</p>
+          <div class="tc-tags">
+            <span class="tc-tag">Education</span>
+            <span class="tc-tag">Programme Management</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM MEMBER 3 -->
+      <div class="team-card ru">
+        <div class="tc-top tc-top-bg-3">
+          <div class="tc-initials">CO</div>
+          <div class="tc-role-tag">Community Outreach</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-name">[Community Officer]</div>
+          <div class="tc-position">Gender &amp; Inclusion Lead</div>
+          <p class="tc-bio">Placeholder — add your Gender &amp; Inclusion Officer's details here. This role leads girls' camps, women's livelihood training, and PWD outreach across Mbale and Bulambuli districts.</p>
+          <div class="tc-tags">
+            <span class="tc-tag">Gender Equality</span>
+            <span class="tc-tag">PWD Inclusion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM MEMBER 4 -->
+      <div class="team-card ru">
+        <div class="tc-top tc-top-bg-4">
+          <div class="tc-initials">SC</div>
+          <div class="tc-role-tag">Sports Coordinator</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-name">[Sports Coordinator]</div>
+          <div class="tc-position">Grassroots Sports &amp; Talent Lead</div>
+          <p class="tc-bio">Placeholder — add your Sports Coordinator's profile here. This person runs the rugby academies, coaching clinics, and talent development pipeline for young athletes across Mbale City.</p>
+          <div class="tc-tags">
+            <span class="tc-tag">Rugby Coaching</span>
+            <span class="tc-tag">Talent Development</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM MEMBER 5 -->
+      <div class="team-card ru">
+        <div class="tc-top tc-top-bg-5">
+          <div class="tc-initials">JA</div>
+          <div class="tc-role-tag">Justice &amp; Advocacy</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-name">[Justice Officer]</div>
+          <div class="tc-position">Juvenile Justice &amp; Child Rights Lead</div>
+          <p class="tc-bio">Placeholder — add your Justice &amp; Advocacy Officer's details here. This role handles legal aid, counselling referrals, and restorative justice support for children and families affected by abuse or neglect.</p>
+          <div class="tc-tags">
+            <span class="tc-tag">Child Rights</span>
+            <span class="tc-tag">Rehabilitation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOIN US PLACEHOLDER -->
+      <div class="team-card team-placeholder ru">
+        <div class="ph-inner">
+          <span class="ph-icon">➕</span>
+          <div class="ph-label">Join Our Team</div>
+          <p class="ph-sub">We are growing. See open<br>volunteer &amp; staff roles.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BELT -->
+<div class="cta-belt">
   <h2>Together We Raise a<br><em>Stronger Generation</em></h2>
   <p>Join us in restoring hope, empowering communities, and building resilient young leaders across Mbale City and beyond.</p>
   <a href="#donate" class="btn-fire">
@@ -867,6 +1228,7 @@ footer{background:#030B06;padding:72px clamp(20px,5vw,64px) 30px}
         <h4>Organisation</h4>
         <ul>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#founder">Word from the Founder</a></li>
           <li><a href="#team">Our Team</a></li>
           <li><a href="#trust">Annual Reports</a></li>
           <li><a href="#partners">Partners</a></li>
