@@ -1,309 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hope for the Next Generation | Mbale City, Uganda</title>
-<meta name="description" content="Empowering vulnerable children, youth, girls and communities in Mbale City through sports, education, advocacy and innovation.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0A1F14;
-    --green-dark: #0F5C38;
-    --green-brand: #25C47A;
-    --fire: #F55B1B;
-    --sand: #F7F5F0;
-    --white: #FFFFFF;
-    --transition: all 0.3s ease;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for the Next Generation | Mbale City, Uganda</title>
+    <meta name="description" content="Empowering vulnerable children, youth, girls and communities in Mbale City through sports, education, advocacy and innovation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Minimalist & Editorial CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --ink: #0A1F14;
+            --ink-light: #1C3828;
+            --green-dark: #0F5C38;
+            --green-main: #1A8C57;
+            --green-bright: #25C47A;
+            --green-pale: #D6F5E8;
+            --fire-accent: #F55B1B;
+            --bg-light: #FAFAFA;
+            --white: #FFFFFF;
+            
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--ink);
-    background-color: var(--sand);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+        body {
+            font-family: var(--font-body);
+            color: var(--ink);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.1; }
-  
-  a { text-decoration: none; color: inherit; }
-  img { max-width: 100%; display: block; }
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
 
-  /* --- Navigation --- */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1.25rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--green-dark); }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
-  .nav-links a { font-weight: 500; transition: var(--transition); }
-  .nav-links a:hover { color: var(--green-brand); }
-  .btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    transition: var(--transition);
-  }
-  .btn-primary { background: var(--fire); color: var(--white); }
-  .btn-primary:hover { background: #d64a12; transform: translateY(-2px); }
+        /* High-End Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition-smooth);
+        }
 
-  /* --- Hero Section --- */
-  .hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 5%;
-    color: var(--white);
-    margin-top: 0;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(10, 31, 20, 0.9) 0%, rgba(10, 31, 20, 0.4) 100%);
-    z-index: 1;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-  }
-  .hero-content h1 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1.5rem; }
-  .hero-content p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 600px; opacity: 0.9; }
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--green-dark);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
 
-  /* --- SDGs Badge --- */
-  .sdg-badges {
-    display: flex; gap: 1rem; margin-bottom: 2rem;
-  }
-  .sdg { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 20px; font-weight: 600; letter-spacing: 1px;}
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-  /* --- Section Defaults --- */
-  section { padding: 6rem 5%; }
-  .section-header { text-align: center; margin-bottom: 4rem; max-width: 700px; margin-inline: auto; }
-  .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--ink); }
+        nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
 
-  /* --- About Layout --- */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .about-img { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-  .about-text h3 { font-size: 2rem; margin-bottom: 1.5rem; }
-  .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #444; }
+        nav a:hover {
+            color: var(--green-main);
+        }
 
-  /* --- Programs Layout --- */
-  .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  .card {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: var(--transition);
-  }
-  .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-  .card-img { height: 250px; width: 100%; object-fit: cover; }
-  .card-body { padding: 2rem; }
-  .card-body h4 { font-family: 'Syne', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; }
+        .btn-primary {
+            background-color: var(--fire-accent);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+        }
 
-  /* --- Donate Section --- */
-  .donate-section { background: var(--ink); color: var(--white); text-align: center; }
-  .donate-section h2 { color: var(--white); }
-  .donate-box {
-    background: var(--white);
-    color: var(--ink);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 3rem;
-    border-radius: 16px;
-  }
-  .freq-toggle { display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: center; }
-  .btn-outline { background: transparent; border: 2px solid #e0e0e0; color: var(--ink); }
-  .btn-outline.active { border-color: var(--green-brand); background: var(--green-brand); color: var(--white); }
-  
-  .amt-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
-  .amt-btn { padding: 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-weight: 700; cursor: pointer; transition: var(--transition); background: none;}
-  .amt-btn.active { border-color: var(--fire); background: rgba(245, 91, 27, 0.1); color: var(--fire); }
+        .btn-primary:hover {
+            background-color: var(--ink);
+            transform: translateY(-2px);
+        }
 
-  /* --- Footer --- */
-  footer { background: #05100a; color: #fff; padding: 4rem 5% 2rem; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
-  .footer-grid p { opacity: 0.7; margin-top: 1rem; }
+        /* Immersive Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+            background-color: var(--ink);
+        }
 
-  @media (max-width: 768px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; } /* Add hamburger menu logic for mobile */
-    .hero-content h1 { font-size: 2.5rem; }
-  }
-</style>
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('IMG_2033.jpeg'); /* Integrated Hero Image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* Scrim overlay for superior text readability */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(10, 31, 20, 0.2), rgba(10, 31, 20, 0.8));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1.5rem;
+            text-wrap: balance;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        /* Minimalist Impact Section */
+        .impact-section {
+            padding: 8rem 4rem;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Architectural Grid Layout for Photos */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            filter: grayscale(10%);
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover .card-img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .card-content {
+            padding: 2.5rem;
+            background: var(--white);
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--green-dark);
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            font-weight: 600;
+            color: var(--fire-accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-link:hover {
+            color: var(--ink);
+        }
+
+        /* Donation Section UI Component */
+        .donate-section {
+            background-color: var(--ink);
+            color: var(--white);
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+
+        .donation-widget {
+            background: var(--white);
+            max-width: 600px;
+            margin: 3rem auto 0;
+            border-radius: 16px;
+            padding: 3rem;
+            color: var(--ink);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+        }
+
+        .freq-toggle {
+            display: flex;
+            background: var(--bg-light);
+            border-radius: 50px;
+            padding: 0.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .freq-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+        }
+
+        .freq-btn.active {
+            background: var(--green-main);
+            color: var(--white);
+        }
+
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .amt-btn {
+            border: 1px solid #E0E0E0;
+            background: var(--white);
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .amt-btn.selected, .amt-btn:hover {
+            border-color: var(--green-main);
+            background: var(--green-pale);
+            color: var(--green-dark);
+        }
+
+        footer {
+            background: var(--ink-light);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header { padding: 1rem 2rem; }
+            nav ul { display: none; } /* Mobile menu implementation needed */
+            .impact-section { padding: 4rem 2rem; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">HNG.</div>
-  <nav class="nav-links">
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#impact">Impact</a>
-    <a href="#donate" class="btn btn-primary">Donate Now</a>
-  </nav>
-</header>
+    <header>
+        <a href="#" class="logo">HNG.</a>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#impact">Our Impact</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#donate" class="btn-primary">Support Our Mission</a>
+    </header>
 
-<section class="hero">
-  <img src="IMG_7891.JPG" alt="HNG Community in Mbale" class="hero-bg">
-  <div class="hero-content">
-    <div class="sdg-badges">
-      <span class="sdg">SDG 4</span>
-      <span class="sdg">SDG 5</span>
-      <span class="sdg">SDG 13</span>
-      <span class="sdg">SDG 16</span>
-    </div>
-    <h1>Hope for the Next Generation</h1>
-    <p>Empowering vulnerable children, youth, and communities in Mbale City through grassroots sports, quality education, and sustainable livelihoods.</p>
-    <a href="#donate" class="btn btn-primary" style="display: inline-block; padding: 1rem 2rem; font-size: 1.1rem;">Support Our Mission</a>
-  </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Empowering the Next Generation.</h1>
+            <p>Advancing sports, quality education, and sustainable livelihoods for vulnerable youth and communities in Mbale City, Uganda.</p>
+            <a href="#impact" class="btn-primary" style="background-color: var(--green-main);">Discover Our Work</a>
+        </div>
+    </section>
 
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img">
-      <img src="1E8A0173.jpeg" alt="HNG Community Impact">
-    </div>
-    <div class="about-text">
-      <h2>Who We Are</h2>
-      <h3>A catalyst for lasting change in Eastern Uganda.</h3>
-      <p>Hope for the Next Generation (HNG) is a registered community-based organisation working at the intersection of child protection, gender equality, and education in Mbale City.</p>
-      <p>We believe that true transformation happens at the grassroots. By amplifying the voices of our beneficiaries and aligning with global sustainable development frameworks, we are building a safer, more equitable future for the next generation.</p>
-    </div>
-  </div>
-</section>
+    <section id="impact" class="impact-section">
+        <div class="section-header">
+            <h2>Transforming Communities</h2>
+            <p>Our approach integrates grassroots initiatives with international frameworks to build grant-worthy, sustainable solutions.</p>
+        </div>
 
-<section id="programs" style="background: #fff;">
-  <div class="section-header">
-    <h2>Our Core Programs</h2>
-    <p>Targeted interventions designed to uplift, educate, and protect.</p>
-  </div>
-  
-  <div class="programs-grid">
-    <div class="card">
-      <img src="IMG_2033.jpeg" alt="Grassroots Sports" class="card-img">
-      <div class="card-body">
-        <h4>Grassroots Sports & Play</h4>
-        <p>Using sports as a vehicle for life skills training, community cohesion, and physical well-being among youth.</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="0b211a3e-0cb9-4516-bcb9-88137433b131.jpg" alt="Education" class="card-img">
-      <div class="card-body">
-        <h4>Quality Education</h4>
-        <p>Ensuring access to inclusive, equitable education and promoting lifelong learning opportunities for all children.</p>
-      </div>
-    </div>
-    
-    <div class="card">
-      <img src="1E8A0173.jpeg" alt="Child Protection" class="card-img">
-      <div class="card-body">
-        <h4>Child Protection & Advocacy</h4>
-        <p>Creating safe environments and advocating for the rights of girls and vulnerable youth in our communities.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="grid-container">
+            <div class="card">
+                <img src="IMG_7891.JPG" alt="Grassroots Sports Initiative" class="card-img">
+                <div class="card-content">
+                    <h3>Grassroots Sports</h3>
+                    <p>Using athletics as a vehicle for community building, discipline, and physical health among vulnerable youth in the region.</p>
+                    <a href="#" class="card-link">Learn more <span>&rarr;</span></a>
+                </div>
+            </div>
 
-<section id="donate" class="donate-section">
-  <div class="section-header">
-    <h2>Invest in the Future</h2>
-    <p style="color: rgba(255,255,255,0.8);">Your support directly impacts lives in Mbale City.</p>
-  </div>
-  
-  <div class="donate-box">
-    <div class="freq-toggle">
-      <button class="btn btn-outline active" onclick="setFreq('once', this)">One-Time</button>
-      <button class="btn btn-outline" onclick="setFreq('monthly', this)">Monthly</button>
-    </div>
-    
-    <div class="amt-grid">
-      <button class="amt-btn active" onclick="setAmt(25, this)">$25</button>
-      <button class="amt-btn" onclick="setAmt(50, this)">$50</button>
-      <button class="amt-btn" onclick="setAmt(100, this)">$100</button>
-    </div>
-    
-    <button class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.25rem;" onclick="processDonation()">Donate Now</button>
-  </div>
-</section>
+            <div class="card">
+                <img src="1E8A0173.jpeg" alt="Quality Education Program" class="card-img">
+                <div class="card-content">
+                    <h3>Quality Education</h3>
+                    <p>Providing essential learning resources, bridging gaps in rural educational infrastructure, and championing SDG 4.</p>
+                    <a href="#" class="card-link">Learn more <span>&rarr;</span></a>
+                </div>
+            </div>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">HNG.</h2>
-      <p>Hope for the Next Generation<br>Mbale City, Uganda</p>
-      <p>Registered under the NGO Act, 2016.</p>
-    </div>
-    <div>
-      <h4 style="margin-bottom: 1rem;">Explore</h4>
-      <p><a href="#about">About Us</a></p>
-      <p><a href="#programs">Our Work</a></p>
-      <p><a href="#impact">Financials</a></p>
-    </div>
-    <div>
-      <h4 style="margin-bottom: 1rem;">Connect</h4>
-      <p>info@hng.org.ug</p>
-      <p>Advancing SDGs 4, 5, 13 & 16</p>
-    </div>
-  </div>
-  <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.9rem; opacity: 0.6;">
-    &copy; 2025 Hope for the Next Generation. All rights reserved.
-  </div>
-</footer>
+            <div class="card">
+                <img src="0b211a3e-0cb9-4516-bcb9-88137433b131.jpg" alt="Child Protection & Advocacy" class="card-img">
+                <div class="card-content">
+                    <h3>Community Advocacy</h3>
+                    <p>Fostering gender equality, child protection, and localized sustainable livelihoods through targeted, culturally aware interventions.</p>
+                    <a href="#" class="card-link">Learn more <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-  let currentFreq = 'once';
-  let currentAmt = 25;
+    <section id="donate" class="donate-section">
+        <h2>Partner with HNG</h2>
+        <p style="max-width: 600px; margin: 1rem auto; opacity: 0.8;">Your contribution directly supports our grassroots initiatives in Mbale City, ensuring sustainable growth and empowerment for the leaders of tomorrow.</p>
+        
+        <div class="donation-widget">
+            <div class="freq-toggle">
+                <button class="freq-btn active" id="btn-once">One-Time</button>
+                <button class="freq-btn" id="btn-monthly">Monthly</button>
+            </div>
+            
+            <div class="amount-grid">
+                <button class="amt-btn">$25</button>
+                <button class="amt-btn selected">$50</button>
+                <button class="amt-btn">$100</button>
+                <button class="amt-btn">$250</button>
+                <button class="amt-btn">$500</button>
+                <button class="amt-btn">Custom</button>
+            </div>
+            
+            <button class="btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Donate Securely</button>
+        </div>
+    </section>
 
-  function setFreq(freq, btn) {
-    currentFreq = freq;
-    document.querySelectorAll('.freq-toggle .btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
+    <footer>
+        <p>&copy; 2026 Hope for the Next Generation | Mbale City, Uganda. Registered under the NGO Act. Advancing SDGs 4, 5, 13 & 16.</p>
+    </footer>
 
-  function setAmt(amt, btn) {
-    currentAmt = amt;
-    document.querySelectorAll('.amt-grid .amt-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
+    <script>
+        // Minimal script logic for UI toggles to match the previous build requirements
+        const freqBtns = document.querySelectorAll('.freq-btn');
+        const amtBtns = document.querySelectorAll('.amt-btn');
 
-  function processDonation() {
-    alert(`Initiating ${currentFreq} donation of $${currentAmt}. Thank you for supporting HNG!`);
-  }
-</script>
+        freqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                freqBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        amtBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                amtBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+            });
+        });
+    </script>
 </body>
 </html>
