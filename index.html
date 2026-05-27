@@ -4,448 +4,920 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hope for the Next Generation | Mbale City, Uganda</title>
-    <meta name="description" content="Empowering vulnerable children, youth, girls and communities in Mbale City through sports, education, advocacy and innovation.">
-    
+    <meta name="description" content="Hope for the Next Generation (HNG) - Restoring hope and unlocking potential among vulnerable children, youth, girls, and disadvantaged communities in Mbale City, Uganda through sports, education, and sustainable livelihoods.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;600;700&family=Lato:wght@400;500;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Minimalist & Editorial CSS Reset */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         :root {
-            --ink: #0A1F14;
-            --ink-light: #1C3828;
-            --green-dark: #0F5C38;
-            --green-main: #1A8C57;
-            --green-bright: #25C47A;
-            --green-pale: #D6F5E8;
-            --fire-accent: #F55B1B;
-            --bg-light: #FAFAFA;
+            --purple: #4B1E6B;
+            --purple-dark: #3a1654;
+            --purple-light: #6b2e96;
+            --gold: #C89B2A;
+            --gold-light: #e0b84a;
+            --green: #2A7A3B;
+            --green-light: #3a9a4f;
+            --orange: #E06B1A;
+            --orange-light: #f08030;
+            --blue: #1A5FA8;
+            --blue-light: #2a7fc8;
             --white: #FFFFFF;
-            
-            --font-display: 'Syne', sans-serif;
-            --font-body: 'DM Sans', sans-serif;
-            
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --off-white: #F8F6F3;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-600: #666666;
+            --gray-800: #333333;
+            --gray-900: #1a1a1a;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: var(--font-body);
-            color: var(--ink);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background: var(--white);
+            overflow-x: hidden;
         }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; }
+        h5, h6 { font-family: 'Raleway', sans-serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; display: block; }
+        button { font-family: 'DM Sans', sans-serif; cursor: pointer; border: none; transition: var(--transition); }
+        ul { list-style: none; }
 
-        h1, h2, h3, h4 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: var(--transition);
         }
-
-        /* High-End Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: var(--transition-smooth);
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
         }
-
-        .logo {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--green-dark);
-            text-decoration: none;
-            letter-spacing: -0.03em;
+        .nav-container {
+            max-width: 1280px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between; height: 72px;
         }
-
-        nav ul {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
+        .nav-logo {
+            display: flex; align-items: center; gap: 12px;
         }
-
-        nav a {
-            text-decoration: none;
-            color: var(--ink);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition-smooth);
+        .nav-logo img { height: 48px; width: auto; }
+        .nav-logo-text {
+            font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 1.1rem;
+            color: var(--purple); line-height: 1.2;
         }
-
-        nav a:hover {
-            color: var(--green-main);
+        .nav-logo-text span { display: block; font-size: 0.7rem; font-weight: 500; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px;
         }
-
-        .btn-primary {
-            background-color: var(--fire-accent);
-            color: var(--white);
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition-smooth);
-            border: none;
-            cursor: pointer;
+        .nav-links a {
+            font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9rem;
+            color: var(--gray-800); position: relative; padding: 4px 0;
         }
-
-        .btn-primary:hover {
-            background-color: var(--ink);
-            transform: translateY(-2px);
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background: var(--gold); transition: var(--transition);
         }
+        .nav-links a:hover { color: var(--purple); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: var(--orange); color: var(--white); padding: 10px 24px;
+            border-radius: 50px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+        .mobile-menu-btn { display: none; background: none; font-size: 1.5rem; color: var(--purple); }
 
-        /* Immersive Hero Section */
+        /* ===== HERO ===== */
         .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            overflow: hidden;
-            background-color: var(--ink);
+            position: relative; min-height: 100vh;
+            display: flex; align-items: center; overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('IMG_2033.jpeg'); /* Integrated Hero Image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.6;
-            z-index: 1;
+        .hero-bg {
+            position: absolute; inset: 0; z-index: 0;
         }
-
-        /* Scrim overlay for superior text readability */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(10, 31, 20, 0.2), rgba(10, 31, 20, 0.8));
-            z-index: 2;
+        .hero-bg img {
+            width: 100%; height: 100%; object-fit: cover;
+            animation: heroZoom 20s ease-in-out infinite alternate;
         }
-
+        @keyframes heroZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(135deg, rgba(75,30,107,0.92) 0%, rgba(75,30,107,0.75) 50%, rgba(75,30,107,0.6) 100%);
+        }
         .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 900px;
-            padding: 0 2rem;
+            position: relative; z-index: 2; max-width: 1280px; margin: 0 auto;
+            padding: 120px 24px 80px; width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white); margin-bottom: 24px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .hero-text h1 .highlight { color: var(--gold); }
+        .hero-text p {
+            font-size: 1.15rem; color: rgba(255,255,255,0.9); margin-bottom: 40px;
+            max-width: 540px; line-height: 1.8;
+        }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--gold); color: var(--purple-dark); padding: 14px 32px;
+            border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200,155,42,0.3); }
+        .btn-secondary {
+            background: transparent; color: var(--white); padding: 14px 32px;
+            border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+            border: 2px solid rgba(255,255,255,0.4);
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+        .hero-image-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+            transform: rotate(-2deg);
+        }
+        .hero-image-grid img {
+            border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);
+            transition: var(--transition); object-fit: cover;
+        }
+        .hero-image-grid img:nth-child(1) { height: 280px; transform: translateY(-20px); }
+        .hero-image-grid img:nth-child(2) { height: 220px; transform: translateY(30px); }
+        .hero-image-grid img:nth-child(3) { height: 200px; transform: translateY(-10px); }
+        .hero-image-grid img:nth-child(4) { height: 260px; transform: translateY(20px); }
+        .hero-image-grid img:hover { transform: translateY(-5px) scale(1.02); z-index: 10; }
+        .hero-scroll {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2;
+            color: rgba(255,255,255,0.6); font-size: 0.8rem; text-align: center;
+            animation: bounce 2s infinite;
+        }
+        .hero-scroll i { display: block; font-size: 1.5rem; margin-bottom: 8px; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin-bottom: 1.5rem;
-            text-wrap: balance;
+        /* ===== MISSION STRIP ===== */
+        .mission-strip {
+            background: var(--purple); padding: 80px 24px; text-align: center;
+            position: relative; overflow: hidden;
         }
-
-        .hero p {
-            font-size: 1.25rem;
-            font-weight: 300;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-inline: auto;
+        .mission-strip::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(200,155,42,0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
         }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        .mission-strip p {
+            font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--white); max-width: 900px; margin: 0 auto; line-height: 1.6;
+            position: relative; z-index: 1;
+        }
+        .mission-strip .accent { color: var(--gold); font-style: italic; }
 
-        /* Minimalist Impact Section */
+        /* ===== IMPACT COUNTER ===== */
         .impact-section {
-            padding: 8rem 4rem;
-            background-color: var(--white);
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+            padding: 60px 24px;
+        }
+        .impact-grid {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;
+        }
+        .impact-item .number {
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--gold); font-weight: 700; line-height: 1;
+        }
+        .impact-item .label {
+            font-family: 'Raleway', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.8);
+            margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;
         }
 
+        /* ===== SECTION HEADERS ===== */
         .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-            max-width: 700px;
-            margin-inline: auto;
+            text-align: center; margin-bottom: 60px;
         }
-
+        .section-header .tag {
+            display: inline-block; background: rgba(200,155,42,0.15); color: var(--gold);
+            padding: 6px 16px; border-radius: 50px; font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
         .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--ink);
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 4vw, 2.8rem); color: var(--purple); margin-bottom: 16px;
         }
-
         .section-header p {
-            color: #555;
-            font-size: 1.1rem;
+            color: var(--gray-600); max-width: 600px; margin: 0 auto; font-size: 1.05rem;
         }
 
-        /* Architectural Grid Layout for Photos */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* ===== PROGRAMME CARDS ===== */
+        .programmes-section { padding: 100px 24px; background: var(--off-white); }
+        .programmes-grid {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
         }
-
-        .card {
-            background: var(--bg-light);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
+        .programme-card {
+            background: var(--white); border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: var(--shadow-sm); transition: var(--transition);
+            position: relative;
         }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        .programme-card:nth-child(4), .programme-card:nth-child(5) {
+            grid-column: span 1;
         }
-
-        .card-img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            filter: grayscale(10%);
-            transition: var(--transition-smooth);
+        .programme-card:nth-child(4) { transform: translateX(50%); }
+        .programme-card:nth-child(5) { transform: translateX(-50%); }
+        .programme-card:hover {
+            transform: translateY(-8px); box-shadow: var(--shadow-xl);
         }
-
-        .card:hover .card-img {
-            filter: grayscale(0%);
-            transform: scale(1.03);
+        .programme-card:hover .card-image img { transform: scale(1.08); }
+        .card-image { height: 220px; overflow: hidden; position: relative; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .card-image::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
         }
-
-        .card-content {
-            padding: 2.5rem;
-            background: var(--white);
-            flex-grow: 1;
+        .card-icon {
+            position: absolute; bottom: 16px; left: 20px; z-index: 2;
+            width: 48px; height: 48px; background: var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--purple); font-size: 1.2rem;
         }
-
+        .card-content { padding: 28px; }
         .card-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--green-dark);
+            font-family: 'Raleway', sans-serif; font-size: 1.2rem; color: var(--purple); margin-bottom: 12px;
         }
-
         .card-content p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1.5rem;
+            font-size: 0.95rem; color: var(--gray-600); margin-bottom: 20px; line-height: 1.7;
         }
-
         .card-link {
-            font-weight: 600;
-            color: var(--fire-accent);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.85rem;
+            color: var(--orange); display: inline-flex; align-items: center; gap: 6px;
         }
+        .card-link:hover { gap: 10px; }
+        .card-link i { font-size: 0.75rem; }
 
-        .card-link:hover {
-            color: var(--ink);
+        /* ===== STORY OF CHANGE ===== */
+        .story-section {
+            padding: 100px 24px; background: var(--white); position: relative;
         }
-
-        /* Donation Section UI Component */
-        .donate-section {
-            background-color: var(--ink);
-            color: var(--white);
-            padding: 6rem 4rem;
-            text-align: center;
+        .story-container {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
         }
-
-        .donation-widget {
-            background: var(--white);
-            max-width: 600px;
-            margin: 3rem auto 0;
-            border-radius: 16px;
-            padding: 3rem;
-            color: var(--ink);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+        .story-image {
+            position: relative; border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: var(--shadow-xl);
         }
-
-        .freq-toggle {
-            display: flex;
-            background: var(--bg-light);
-            border-radius: 50px;
-            padding: 0.25rem;
-            margin-bottom: 2rem;
+        .story-image img { width: 100%; height: 500px; object-fit: cover; }
+        .story-image::before {
+            content: ''; position: absolute; top: -20px; left: -20px; right: 20px; bottom: 20px;
+            border: 3px solid var(--gold); border-radius: var(--radius-xl); z-index: -1;
         }
+        .story-quote {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(75,30,107,0.95), transparent);
+            padding: 60px 30px 30px; color: var(--white);
+        }
+        .story-quote .quote-icon {
+            font-family: 'Playfair Display', serif; font-size: 4rem; line-height: 1;
+            color: var(--gold); opacity: 0.6;
+        }
+        .story-quote p {
+            font-family: 'Playfair Display', serif; font-size: 1.2rem; font-style: italic;
+            margin-bottom: 16px; line-height: 1.6;
+        }
+        .story-quote .author { font-weight: 600; font-size: 0.9rem; }
+        .story-quote .author span { opacity: 0.7; font-weight: 400; }
+        .story-content h2 { font-size: 2.2rem; color: var(--purple); margin-bottom: 20px; }
+        .story-content > p { color: var(--gray-600); margin-bottom: 30px; font-size: 1.05rem; }
+        .story-stats {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 30px;
+        }
+        .story-stat { padding: 20px; background: var(--off-white); border-radius: var(--radius-md); border-left: 4px solid var(--gold); }
+        .story-stat .num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--purple); font-weight: 700; }
+        .story-stat .txt { font-size: 0.85rem; color: var(--gray-600); margin-top: 4px; }
+        .story-nav { display: flex; gap: 12px; }
+        .story-nav button {
+            width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gray-200);
+            background: var(--white); color: var(--purple); font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .story-nav button:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
 
-        .freq-btn {
-            flex: 1;
-            padding: 0.75rem;
-            border: none;
-            background: transparent;
-            font-weight: 600;
-            font-family: var(--font-body);
+        /* ===== SDG SECTION ===== */
+        .sdg-section { padding: 100px 24px; background: var(--off-white); }
+        .sdg-grid {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .sdg-card {
+            background: var(--white); border-radius: var(--radius-lg); padding: 32px;
+            text-align: center; transition: var(--transition); position: relative; overflow: hidden;
             cursor: pointer;
-            border-radius: 50px;
-            transition: var(--transition-smooth);
         }
-
-        .freq-btn.active {
-            background: var(--green-main);
-            color: var(--white);
+        .sdg-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            transition: var(--transition);
         }
-
-        .amount-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
+        .sdg-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .sdg-card:hover::before { height: 6px; }
+        .sdg-card.sdg-4::before { background: #C5192D; }
+        .sdg-card.sdg-5::before { background: #FF3A21; }
+        .sdg-card.sdg-13::before { background: #3F7E44; }
+        .sdg-card.sdg-16::before { background: #00689D; }
+        .sdg-icon {
+            width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--white);
+            font-family: 'Raleway', sans-serif; font-weight: 700;
         }
-
-        .amt-btn {
-            border: 1px solid #E0E0E0;
-            background: var(--white);
-            padding: 1rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
+        .sdg-4 .sdg-icon { background: #C5192D; }
+        .sdg-5 .sdg-icon { background: #FF3A21; }
+        .sdg-13 .sdg-icon { background: #3F7E44; }
+        .sdg-16 .sdg-icon { background: #00689D; }
+        .sdg-card h3 { font-family: 'Raleway', sans-serif; font-size: 1.1rem; color: var(--purple); margin-bottom: 12px; }
+        .sdg-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+        .sdg-card .sdg-link {
+            margin-top: 16px; font-family: 'DM Sans', sans-serif; font-weight: 600;
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
         }
+        .sdg-4 .sdg-link { color: #C5192D; }
+        .sdg-5 .sdg-link { color: #FF3A21; }
+        .sdg-13 .sdg-link { color: #3F7E44; }
+        .sdg-16 .sdg-link { color: #00689D; }
 
-        .amt-btn.selected, .amt-btn:hover {
-            border-color: var(--green-main);
-            background: var(--green-pale);
-            color: var(--green-dark);
+        /* ===== NEWS SECTION ===== */
+        .news-section { padding: 100px 24px; background: var(--white); }
+        .news-grid {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
         }
-
-        footer {
-            background: var(--ink-light);
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 3rem;
-            font-size: 0.85rem;
+        .news-card {
+            background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid var(--gray-200);
         }
+        .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .news-card:hover .news-image img { transform: scale(1.05); }
+        .news-image { height: 200px; overflow: hidden; }
+        .news-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .news-content { padding: 24px; }
+        .news-tag {
+            display: inline-block; background: rgba(42,122,59,0.1); color: var(--green);
+            padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; margin-bottom: 12px;
+        }
+        .news-content h3 {
+            font-family: 'Raleway', sans-serif; font-size: 1.1rem; color: var(--purple); margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .news-meta { display: flex; align-items: center; gap: 12px; color: var(--gray-600); font-size: 0.8rem; }
+        .news-meta i { color: var(--gold); }
 
-        /* Responsive Design */
+        /* ===== PARTNERS ===== */
+        .partners-section { padding: 60px 24px; background: var(--gray-100); }
+        .partners-track {
+            max-width: 1280px; margin: 0 auto; overflow: hidden;
+        }
+        .partners-scroll {
+            display: flex; gap: 60px; animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+        .partners-scroll:hover { animation-play-state: paused; }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .partner-logo {
+            flex-shrink: 0; height: 60px; width: 160px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--white); border-radius: var(--radius-md);
+            padding: 12px 24px; opacity: 0.5; filter: grayscale(100%);
+            transition: var(--transition); font-family: 'Raleway', sans-serif;
+            font-weight: 600; color: var(--gray-600); font-size: 0.85rem;
+        }
+        .partner-logo:hover { opacity: 1; filter: grayscale(0%); box-shadow: var(--shadow-md); }
+
+        /* ===== DONATE CTA ===== */
+        .donate-cta {
+            background: linear-gradient(135deg, var(--orange) 0%, #c45a15 100%);
+            padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+        }
+        .donate-cta::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .donate-cta h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem); color: var(--white); margin-bottom: 16px;
+            position: relative; z-index: 1;
+        }
+        .donate-cta p {
+            color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 600px;
+            margin: 0 auto 32px; position: relative; z-index: 1;
+        }
+        .donate-cta .btn-primary {
+            background: var(--gold); color: var(--purple-dark); font-size: 1.1rem;
+            padding: 16px 48px; position: relative; z-index: 1;
+        }
+        .donate-cta .btn-primary:hover { background: var(--white); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--purple-dark); color: rgba(255,255,255,0.8); padding: 80px 24px 0;
+        }
+        .footer-grid {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+        }
+        .footer-brand img { height: 60px; margin-bottom: 20px; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a {
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; color: var(--white);
+            font-size: 1rem; transition: var(--transition);
+        }
+        .footer-social a:hover { background: var(--gold); color: var(--purple-dark); transform: translateY(-3px); }
+        .footer-col h4 {
+            font-family: 'Raleway', sans-serif; font-size: 1rem; color: var(--white);
+            margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .footer-col a {
+            display: block; font-size: 0.9rem; color: rgba(255,255,255,0.7);
+            margin-bottom: 12px; transition: var(--transition);
+        }
+        .footer-col a:hover { color: var(--gold); padding-left: 4px; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding: 24px;
+            text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.5);
+        }
+        .footer-bottom a { color: rgba(255,255,255,0.6); margin: 0 12px; }
+        .footer-bottom a:hover { color: var(--gold); }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 40px; }
+            .hero-image-grid { display: none; }
+            .programmes-grid { grid-template-columns: repeat(2, 1fr); }
+            .programme-card:nth-child(4), .programme-card:nth-child(5) { transform: none; }
+            .story-container { grid-template-columns: 1fr; }
+            .sdg-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
-            header { padding: 1rem 2rem; }
-            nav ul { display: none; } /* Mobile menu implementation needed */
-            .impact-section { padding: 4rem 2rem; }
-            .grid-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .programmes-grid { grid-template-columns: 1fr; }
+            .sdg-grid { grid-template-columns: 1fr; }
+            .news-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .story-stats { grid-template-columns: 1fr; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
         }
     </style>
+<base target="_blank">
 </head>
 <body>
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="images/logo_purple.png" alt="HNG Logo">
+                <div class="nav-logo-text">
+                    Hope for the<br>Next Generation
+                    <span>Mbale City, Uganda</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#programmes">Our Work</a>
+                <a href="#impact">Impact</a>
+                <a href="#sdgs">SDGs</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#donate" class="nav-cta"><i class="fas fa-heart"></i> Donate Now</a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
 
-    <header>
-        <a href="#" class="logo">HNG.</a>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#impact">Our Impact</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#donate" class="btn-primary">Support Our Mission</a>
-    </header>
-
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="images/hero_stadium.jpg" alt="Hope for the Next Generation at Mandela National Stadium">
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Empowering the Next Generation.</h1>
-            <p>Advancing sports, quality education, and sustainable livelihoods for vulnerable youth and communities in Mbale City, Uganda.</p>
-            <a href="#impact" class="btn-primary" style="background-color: var(--green-main);">Discover Our Work</a>
+            <div class="hero-text">
+                <h1>Restoring Hope.<br>Unlocking <span class="highlight">Potential.</span></h1>
+                <p>Empowering vulnerable children, youth, and communities in Mbale City through grassroots sports, quality education, and sustainable livelihoods.</p>
+                <div class="hero-buttons">
+                    <a href="#programmes" class="btn-primary"><i class="fas fa-arrow-right"></i> Explore Our Work</a>
+                    <a href="#donate" class="btn-secondary"><i class="fas fa-play-circle"></i> Watch Our Story</a>
+                </div>
+            </div>
+            <div class="hero-image-grid">
+                <img src="images/kids_group.jpg" alt="Children in sports programme">
+                <img src="images/girls_rugby.jpg" alt="Girls rugby team">
+                <img src="images/team_lineup.jpg" alt="Team lineup">
+                <img src="images/award_winners.jpg" alt="Award winners">
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+            Scroll to explore
         </div>
     </section>
 
-    <section id="impact" class="impact-section">
-        <div class="section-header">
-            <h2>Transforming Communities</h2>
-            <p>Our approach integrates grassroots initiatives with international frameworks to build grant-worthy, sustainable solutions.</p>
+    <!-- MISSION STRIP -->
+    <section class="mission-strip">
+        <p>"A transformed Mbale City where every vulnerable child thrives through <span class="accent">sports, education, and community innovation</span> — growing into confident, resilient leaders who restore hope for future generations."</p>
+    </section>
+
+    <!-- IMPACT COUNTER -->
+    <section class="impact-section" id="impact">
+        <div class="impact-grid">
+            <div class="impact-item fade-in">
+                <div class="number" data-target="2400">0</div>
+                <div class="label">Children Reached</div>
+            </div>
+            <div class="impact-item fade-in">
+                <div class="number" data-target="5">0</div>
+                <div class="label">Programme Areas</div>
+            </div>
+            <div class="impact-item fade-in">
+                <div class="number" data-target="6">0</div>
+                <div class="label">Communities Served</div>
+            </div>
+            <div class="impact-item fade-in">
+                <div class="number" data-target="100">0</div>
+                <div class="label">Active Volunteers</div>
+            </div>
         </div>
+    </section>
 
-        <div class="grid-container">
-            <div class="card">
-                <img src="IMG_7891.JPG" alt="Grassroots Sports Initiative" class="card-img">
+    <!-- PROGRAMMES -->
+    <section class="programmes-section" id="programmes">
+        <div class="section-header fade-in">
+            <span class="tag">What We Do</span>
+            <h2>Our Programmes</h2>
+            <p>Five interconnected programmes working together to transform lives and build resilient communities across Mbale City.</p>
+        </div>
+        <div class="programmes-grid">
+            <div class="programme-card fade-in">
+                <div class="card-image">
+                    <img src="images/hng_shirt.jpg" alt="Education and Life Skills">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                </div>
                 <div class="card-content">
-                    <h3>Grassroots Sports</h3>
-                    <p>Using athletics as a vehicle for community building, discipline, and physical health among vulnerable youth in the region.</p>
-                    <a href="#" class="card-link">Learn more <span>&rarr;</span></a>
+                    <h3>Education & Life Skills</h3>
+                    <p>Quality education support, school materials, tutoring, and mentorship programmes that nurture young minds and break cycles of poverty.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="1E8A0173.jpeg" alt="Quality Education Program" class="card-img">
+            <div class="programme-card fade-in">
+                <div class="card-image">
+                    <img src="images/hero_stadium.jpg" alt="Grassroots Sports">
+                    <div class="card-icon"><i class="fas fa-running"></i></div>
+                </div>
                 <div class="card-content">
-                    <h3>Quality Education</h3>
-                    <p>Providing essential learning resources, bridging gaps in rural educational infrastructure, and championing SDG 4.</p>
-                    <a href="#" class="card-link">Learn more <span>&rarr;</span></a>
+                    <h3>Grassroots Sports & Talent</h3>
+                    <p>Rugby and community sports as tools for discipline, teamwork, and holistic child development on and off the field.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="0b211a3e-0cb9-4516-bcb9-88137433b131.jpg" alt="Child Protection & Advocacy" class="card-img">
+            <div class="programme-card fade-in">
+                <div class="card-image">
+                    <img src="images/team_lineup.jpg" alt="Child Protection">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                </div>
                 <div class="card-content">
-                    <h3>Community Advocacy</h3>
-                    <p>Fostering gender equality, child protection, and localized sustainable livelihoods through targeted, culturally aware interventions.</p>
-                    <a href="#" class="card-link">Learn more <span>&rarr;</span></a>
+                    <h3>Child Protection & Justice</h3>
+                    <p>Advocacy for child rights, prevention of abuse, and rehabilitation support creating safer environments for every child.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="programme-card fade-in">
+                <div class="card-image">
+                    <img src="images/girls_rugby.jpg" alt="Girls Empowerment">
+                    <div class="card-icon"><i class="fas fa-venus"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>Girls Empowerment & Inclusion</h3>
+                    <p>Targeted outreach, skills workshops, and livelihood training promoting gender equality and social inclusion.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="programme-card fade-in">
+                <div class="card-image">
+                    <img src="images/kids_group.jpg" alt="Community Sustainability">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>Community Sustainability</h3>
+                    <p>Training and collaborative projects addressing poverty, health, environment, and livelihood improvement for families.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="donate" class="donate-section">
-        <h2>Partner with HNG</h2>
-        <p style="max-width: 600px; margin: 1rem auto; opacity: 0.8;">Your contribution directly supports our grassroots initiatives in Mbale City, ensuring sustainable growth and empowerment for the leaders of tomorrow.</p>
-        
-        <div class="donation-widget">
-            <div class="freq-toggle">
-                <button class="freq-btn active" id="btn-once">One-Time</button>
-                <button class="freq-btn" id="btn-monthly">Monthly</button>
+    <!-- STORY OF CHANGE -->
+    <section class="story-section" id="about">
+        <div class="story-container">
+            <div class="story-image fade-in">
+                <img src="images/rugby_portrait.jpg" alt="Ivan Magomu - Founder">
+                <div class="story-quote">
+                    <div class="quote-icon">"</div>
+                    <p>Every child deserves a chance to dream. Through sports and education, we are building a generation that will transform Uganda.</p>
+                    <div class="author">Ivan Magomu <span>— Founder & CEO, HNG</span></div>
+                </div>
             </div>
-            
-            <div class="amount-grid">
-                <button class="amt-btn">$25</button>
-                <button class="amt-btn selected">$50</button>
-                <button class="amt-btn">$100</button>
-                <button class="amt-btn">$250</button>
-                <button class="amt-btn">$500</button>
-                <button class="amt-btn">Custom</button>
+            <div class="story-content fade-in">
+                <span class="tag">Our Story</span>
+                <h2>From the Rugby Field to Community Transformation</h2>
+                <p>Founded by Uganda Rugby Cranes captain Ivan Magomu, Hope for the Next Generation was born from a belief that sports can be a powerful vehicle for social change. What started as informal coaching sessions in Mbale has grown into a registered NGO reaching thousands of vulnerable children across Eastern Uganda.</p>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <div class="num">2018</div>
+                        <div class="txt">Year Founded</div>
+                    </div>
+                    <div class="story-stat">
+                        <div class="num">6</div>
+                        <div class="txt">Districts Reached</div>
+                    </div>
+                    <div class="story-stat">
+                        <div class="num">50+</div>
+                        <div class="txt">Community Coaches</div>
+                    </div>
+                    <div class="story-stat">
+                        <div class="num">4</div>
+                        <div class="txt">SDGs Advanced</div>
+                    </div>
+                </div>
+                <div class="story-nav">
+                    <button><i class="fas fa-arrow-left"></i></button>
+                    <button><i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
-            
-            <button class="btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Donate Securely</button>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Hope for the Next Generation | Mbale City, Uganda. Registered under the NGO Act. Advancing SDGs 4, 5, 13 & 16.</p>
+    <!-- SDGs -->
+    <section class="sdg-section" id="sdgs">
+        <div class="section-header fade-in">
+            <span class="tag">Global Goals</span>
+            <h2>Advancing the SDGs</h2>
+            <p>Our work directly contributes to four United Nations Sustainable Development Goals, creating measurable impact for a better world.</p>
+        </div>
+        <div class="sdg-grid">
+            <div class="sdg-card sdg-4 fade-in">
+                <div class="sdg-icon">4</div>
+                <h3>Quality Education</h3>
+                <p>Educational support, life-skills training, and mentorship to hundreds of vulnerable children annually, tackling school dropout and supporting learners with disabilities.</p>
+                <a href="#" class="sdg-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="sdg-card sdg-5 fade-in">
+                <div class="sdg-icon">5</div>
+                <h3>Gender Equality</h3>
+                <p>Girls' empowerment programmes, women's livelihood workshops, and GESI-mainstreamed governance advancing gender equality and women's empowerment.</p>
+                <a href="#" class="sdg-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="sdg-card sdg-13 fade-in">
+                <div class="sdg-icon">13</div>
+                <h3>Climate Action</h3>
+                <p>Environmental awareness, sustainable agriculture techniques, and climate-resilient livelihood training equipping communities to respond to climate change.</p>
+                <a href="#" class="sdg-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="sdg-card sdg-16 fade-in">
+                <div class="sdg-icon">16</div>
+                <h3>Peace & Justice</h3>
+                <p>Child rights advocacy, rehabilitation of at-risk youth, and promotion of access to justice building safe, accountable community institutions.</p>
+                <a href="#" class="sdg-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="news-section" id="news">
+        <div class="section-header fade-in">
+            <span class="tag">Latest Updates</span>
+            <h2>News & Stories</h2>
+            <p>Stay informed about our programmes, community impact, and the voices of those we serve.</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card fade-in">
+                <div class="news-image">
+                    <img src="images/girls_rugby.jpg" alt="Girls Rugby Programme Launch">
+                </div>
+                <div class="news-content">
+                    <span class="news-tag">Sports</span>
+                    <h3>Girls Rugby Programme Expands to Three New Schools</h3>
+                    <div class="news-meta">
+                        <span><i class="fas fa-calendar"></i> May 15, 2025</span>
+                        <span><i class="fas fa-user"></i> HNG Team</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card fade-in">
+                <div class="news-image">
+                    <img src="images/kids_group.jpg" alt="Community Outreach">
+                </div>
+                <div class="news-content">
+                    <span class="news-tag">Community</span>
+                    <h3>Annual Community Sports Day Brings Together 500+ Youth</h3>
+                    <div class="news-meta">
+                        <span><i class="fas fa-calendar"></i> April 28, 2025</span>
+                        <span><i class="fas fa-user"></i> HNG Team</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card fade-in">
+                <div class="news-image">
+                    <img src="images/award_winners.jpg" alt="Partnership Announcement">
+                </div>
+                <div class="news-content">
+                    <span class="news-tag">Partnership</span>
+                    <h3>New Partnership with International Sports Foundation</h3>
+                    <div class="news-meta">
+                        <span><i class="fas fa-calendar"></i> April 10, 2025</span>
+                        <span><i class="fas fa-user"></i> HNG Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners-section">
+        <div class="section-header fade-in">
+            <span class="tag">Collaboration</span>
+            <h2>Our Partners & Supporters</h2>
+        </div>
+        <div class="partners-track">
+            <div class="partners-scroll">
+                <div class="partner-logo">Uganda Rugby Union</div>
+                <div class="partner-logo">Black Pirates RFC</div>
+                <div class="partner-logo">SportPesa</div>
+                <div class="partner-logo">Nile Special</div>
+                <div class="partner-logo">Samurai Rugby</div>
+                <div class="partner-logo">Toyota Uganda</div>
+                <div class="partner-logo">Stanbic Bank</div>
+                <div class="partner-logo">Mbale City Council</div>
+                <div class="partner-logo">Uganda Rugby Union</div>
+                <div class="partner-logo">Black Pirates RFC</div>
+                <div class="partner-logo">SportPesa</div>
+                <div class="partner-logo">Nile Special</div>
+                <div class="partner-logo">Samurai Rugby</div>
+                <div class="partner-logo">Toyota Uganda</div>
+                <div class="partner-logo">Stanbic Bank</div>
+                <div class="partner-logo">Mbale City Council</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATE CTA -->
+    <section class="donate-cta" id="donate">
+        <h2>Your Support Changes Everything</h2>
+        <p>Every donation directly supports a child in Mbale City — providing school supplies, sports equipment, mentorship, and hope for a brighter future.</p>
+        <a href="#" class="btn-primary"><i class="fas fa-heart"></i> Donate Today</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo_white.png" alt="HNG Logo">
+                <p>Hope for the Next Generation is a registered NGO under the NGO Act, 2016, working at the intersection of grassroots sport, education, and sustainable livelihoods in Mbale City, Uganda.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>About HNG</h4>
+                <a href="#">Our Story</a>
+                <a href="#">Vision & Mission</a>
+                <a href="#">Our Team</a>
+                <a href="#">Governance</a>
+                <a href="#">Annual Reports</a>
+            </div>
+            <div class="footer-col">
+                <h4>Our Work</h4>
+                <a href="#">Education & Life Skills</a>
+                <a href="#">Sports & Talent</a>
+                <a href="#">Child Protection</a>
+                <a href="#">Girls Empowerment</a>
+                <a href="#">Community Sustainability</a>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <a href="#">Donate</a>
+                <a href="#">Volunteer</a>
+                <a href="#">Partner With Us</a>
+                <a href="#">News & Media</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hope for the Next Generation. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Child Safeguarding Policy</a> | 
+            <a href="#">Cookie Policy</a> | 
+            <a href="#">Terms of Use</a> | 
+            <a href="#">Accessibility</a></p>
+            <p style="margin-top:8px; font-size:0.75rem;">Registered under the NGO Act, 2016 | Advancing SDGs 4, 5, 13 & 16 | Mbale City, Uganda</p>
+        </div>
     </footer>
 
     <script>
-        // Minimal script logic for UI toggles to match the previous build requirements
-        const freqBtns = document.querySelectorAll('.freq-btn');
-        const amtBtns = document.querySelectorAll('.amt-btn');
-
-        freqBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                freqBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        amtBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                amtBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
+        // Animated counters
+        const counters = document.querySelectorAll('.number[data-target]');
+        const animateCounter = (el) => {
+            const target = parseInt(el.dataset.target);
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            const update = () => {
+                current += step;
+                if (current < target) {
+                    el.textContent = Math.floor(current).toLocaleString() + '+';
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = target.toLocaleString() + '+';
+                }
+            };
+            update();
+        };
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.querySelector('.number[data-target]')) {
+                        animateCounter(entry.target.querySelector('.number[data-target]'));
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.impact-item').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
     </script>
