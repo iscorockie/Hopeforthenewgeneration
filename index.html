@@ -3,1322 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hope for the Next Generation — Mbale City, Uganda</title>
+<title>Hope for the Next Generation | Mbale City, Uganda</title>
 <meta name="description" content="Empowering vulnerable children, youth, girls and communities in Mbale City through sports, education, advocacy and innovation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0A1F14;
-  --ink2:#1C3828;
-  --green:#0F5C38;
-  --green-m:#1A8C57;
-  --green-b:#25C47A;
-  --green-p:#D6F5E8;
-  --fire:#F55B1B;
-  --fire-d:#C23F07;
-  --fire-l:#FEE8DC;
-  --gold:#FFBE3A;
-  --gold-l:#FFF6DC;
-  --cream:#FAFAF7;
-  --white:#FFFFFF;
-  --muted:#5E6E66;
-  --border:rgba(0,0,0,0.08);
-  --r-sm:8px;--r-md:16px;--r-lg:24px;--r-xl:40px;--r-full:9999px;
-  --shadow-s:0 2px 12px rgba(0,0,0,0.07);
-  --shadow-m:0 8px 32px rgba(0,0,0,0.11);
-  --shadow-l:0 20px 60px rgba(0,0,0,0.16);
-  --ease:cubic-bezier(.4,0,.2,1);
-  --font-head:'Syne',sans-serif;
-  --font-body:'DM Sans',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--ink);background:var(--cream);overflow-x:hidden;line-height:1.7}
+  :root {
+    --ink: #0A1F14;
+    --green-dark: #0F5C38;
+    --green-brand: #25C47A;
+    --fire: #F55B1B;
+    --sand: #F7F5F0;
+    --white: #FFFFFF;
+    --transition: all 0.3s ease;
+  }
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  height:68px;padding:0 clamp(20px,5vw,64px);
-  display:flex;align-items:center;justify-content:space-between;
-  transition:background .3s var(--ease),box-shadow .3s var(--ease);
-}
-nav.solid{background:rgba(10,31,20,.96);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-.logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{
-  width:38px;height:38px;border-radius:10px;
-  background:var(--fire);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-weight:800;font-size:17px;color:#fff;letter-spacing:-1px;
-  flex-shrink:0;
-}
-.logo-text{font-family:var(--font-head);font-size:15px;font-weight:700;color:#fff;line-height:1.25}
-.logo-text small{display:block;font-size:10px;font-weight:500;opacity:.55;letter-spacing:.8px;text-transform:uppercase}
-.nav-menu{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-.nav-menu a:hover{color:#fff}
-.nav-cta{
-  background:var(--fire);color:#fff !important;
-  padding:9px 22px;border-radius:var(--r-full);
-  font-weight:700 !important;font-size:14px !important;
-  transition:background .2s,transform .2s !important;
-}
-.nav-cta:hover{background:var(--fire-d) !important;transform:translateY(-1px)}
-.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.nav-burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--ease) .3s}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── HERO ── */
-.hero{
-  position:relative;min-height:100vh;
-  display:flex;align-items:center;overflow:hidden;
-  background:var(--ink);padding:100px clamp(20px,5vw,64px) 60px;
-}
-.hero-bg-layer{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 80% at 80% 30%,rgba(37,196,122,.14) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 50% at 15% 85%,rgba(245,91,27,.10) 0%,transparent 55%),
-    linear-gradient(160deg,#05180D 0%,#0A2819 50%,#061209 100%);
-}
-.hero-grid-overlay{
-  position:absolute;inset:0;opacity:.03;
-  background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);
-  background-size:64px 64px;
-}
-.hero-circle-1,.hero-circle-2{position:absolute;border-radius:50%;pointer-events:none}
-.hero-circle-1{width:520px;height:520px;right:-120px;top:-100px;border:1px solid rgba(37,196,122,.12)}
-.hero-circle-2{width:320px;height:320px;right:30px;top:50px;border:1px solid rgba(37,196,122,.08)}
-.hero-inner{position:relative;z-index:5;max-width:720px}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,190,58,.12);border:1px solid rgba(255,190,58,.28);
-  color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
-  padding:6px 15px;border-radius:var(--r-full);margin-bottom:30px;
-}
-.eyebrow-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
-.hero h1{
-  font-family:var(--font-head);font-weight:800;
-  font-size:clamp(46px,7vw,88px);line-height:.95;
-  color:#fff;letter-spacing:-2px;margin-bottom:28px;
-}
-.hero h1 .em{color:var(--fire);font-style:italic}
-.hero h1 .hi{
-  position:relative;display:inline-block;color:var(--green-b);
-}
-.hero h1 .hi::after{
-  content:'';position:absolute;left:0;bottom:-4px;right:0;height:3px;
-  background:var(--green-b);border-radius:2px;opacity:.5;
-}
-.hero-p{
-  font-size:clamp(15px,1.7vw,18px);color:rgba(255,255,255,.65);
-  max-width:560px;margin-bottom:44px;line-height:1.75;font-weight:300;
-}
-.hero-p strong{color:rgba(255,255,255,.9);font-weight:600}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:60px}
-.btn-fire{
-  background:var(--fire);color:#fff;padding:15px 30px;border-radius:var(--r-full);
-  font-family:var(--font-body);font-size:15px;font-weight:700;text-decoration:none;
-  display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;
-  box-shadow:0 8px 28px rgba(245,91,27,.38);
-  transition:background .2s,transform .2s,box-shadow .2s;
-}
-.btn-fire:hover{background:var(--fire-d);transform:translateY(-2px);box-shadow:0 12px 36px rgba(245,91,27,.5)}
-.btn-fire svg{width:17px;height:17px;flex-shrink:0}
-.btn-ghost{
-  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.22);
-  color:#fff;padding:15px 30px;border-radius:var(--r-full);
-  font-size:15px;font-weight:600;text-decoration:none;
-  display:inline-flex;align-items:center;gap:9px;
-  transition:background .2s,border-color .2s,transform .2s;
-}
-.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
-.btn-ghost svg{width:15px;height:15px}
-.hero-trust{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
-.trust-chip{
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
-  color:rgba(255,255,255,.55);font-size:11px;font-weight:600;letter-spacing:.4px;
-  padding:6px 14px;border-radius:var(--r-full);white-space:nowrap;
-}
-.hero-scroll{
-  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-  z-index:5;display:flex;flex-direction:column;align-items:center;gap:6px;
-  color:rgba(255,255,255,.3);font-size:10px;letter-spacing:2px;text-transform:uppercase;
-  animation:float 2.8s ease-in-out infinite;
-}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
-.hero-scroll svg{width:18px;height:18px}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background-color: var(--sand);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* ── STATS BAND ── */
-.stats-band{background:var(--green);padding:72px clamp(20px,5vw,64px)}
-.stats-inner{max-width:1160px;margin:0 auto}
-.stats-head{text-align:center;margin-bottom:52px}
-.stats-head h2{
-  font-family:var(--font-head);font-size:clamp(30px,4vw,48px);
-  font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:8px;
-}
-.stats-head p{color:rgba(255,255,255,.55);font-size:15px}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.s-card{
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--r-lg);padding:36px 24px;text-align:center;
-  position:relative;overflow:hidden;
-  transition:background .3s,transform .3s;
-}
-.s-card:hover{background:rgba(255,255,255,.14);transform:translateY(-5px)}
-.s-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:3px 3px 0 0;
-}
-.s-card:nth-child(1)::before{background:var(--fire)}
-.s-card:nth-child(2)::before{background:var(--gold)}
-.s-card:nth-child(3)::before{background:var(--green-b)}
-.s-card:nth-child(4)::before{background:#8BAAFF}
-.s-icon{font-size:28px;margin-bottom:16px;display:block}
-.s-num{
-  font-family:var(--font-head);font-size:clamp(44px,5vw,60px);
-  font-weight:800;line-height:1;display:block;margin-bottom:8px;
-  letter-spacing:-2px;
-}
-.s-card:nth-child(1) .s-num{color:var(--fire)}
-.s-card:nth-child(2) .s-num{color:var(--gold)}
-.s-card:nth-child(3) .s-num{color:var(--green-b)}
-.s-card:nth-child(4) .s-num{color:#8BAAFF}
-.s-label{font-size:13px;color:rgba(255,255,255,.6);font-weight:500;line-height:1.45}
+  h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.1; }
+  
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
 
-/* ── PROGRAMS ── */
-.programs-sec{background:var(--cream);padding:96px clamp(20px,5vw,64px)}
-.sec-inner{max-width:1160px;margin:0 auto}
-.sec-top{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:56px;flex-wrap:wrap}
-.sec-kicker{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--fire);margin-bottom:12px;display:block}
-.sec-h{
-  font-family:var(--font-head);font-size:clamp(32px,4.5vw,54px);
-  font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:.98;
-}
-.sec-h em{color:var(--fire);font-style:italic}
-.sec-sub{font-size:15px;color:var(--muted);max-width:500px;margin-top:14px;line-height:1.75}
-.prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.pc{
-  background:#fff;border-radius:var(--r-lg);overflow:hidden;
-  border:1px solid var(--border);box-shadow:var(--shadow-s);
-  display:flex;flex-direction:column;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
-}
-.pc:hover{transform:translateY(-7px);box-shadow:var(--shadow-l)}
-.pc-head{padding:34px 30px 22px;position:relative}
-.pc:nth-child(1) .pc-head{background:linear-gradient(135deg,#073B24,#0F6640)}
-.pc:nth-child(2) .pc-head{background:linear-gradient(135deg,#5A1E00,#A83600)}
-.pc:nth-child(3) .pc-head{background:linear-gradient(135deg,#0C1F5C,#1E3CA8)}
-.pc:nth-child(4) .pc-head{background:linear-gradient(135deg,#2D0D4F,#621AA8)}
-.pc-track{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
-.pc-ico{
-  width:52px;height:52px;border-radius:12px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
-  display:flex;align-items:center;justify-content:center;font-size:24px;
-  margin-bottom:16px;
-}
-.pc-title{font-family:var(--font-head);font-size:26px;font-weight:800;color:#fff;line-height:1.05;margin-bottom:5px}
-.pc-tag{font-size:12px;color:rgba(255,255,255,.55)}
-.pc-body{padding:26px 30px 30px;flex:1;display:flex;flex-direction:column}
-.pc-desc{font-size:14px;color:#444;line-height:1.78;flex:1;margin-bottom:22px}
-.pc-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
-.pill{font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-full)}
-.pc:nth-child(1) .pill{background:var(--green-p);color:#074D2A}
-.pc:nth-child(2) .pill{background:var(--fire-l);color:#8B2800}
-.pc:nth-child(3) .pill{background:#E5EAFF;color:#0C1F5C}
-.pc:nth-child(4) .pill{background:#F0E5FF;color:#3D0D6B}
-.pc-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;text-decoration:none;transition:gap .2s,opacity .2s}
-.pc-link svg{width:15px;height:15px;transition:transform .2s}
-.pc-link:hover svg{transform:translateX(4px)}
-.pc:nth-child(1) .pc-link{color:var(--green)}
-.pc:nth-child(2) .pc-link{color:var(--fire-d)}
-.pc:nth-child(3) .pc-link{color:#1E3CA8}
-.pc:nth-child(4) .pc-link{color:#621AA8}
+  /* --- Navigation --- */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1.25rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--green-dark); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { font-weight: 500; transition: var(--transition); }
+  .nav-links a:hover { color: var(--green-brand); }
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+  }
+  .btn-primary { background: var(--fire); color: var(--white); }
+  .btn-primary:hover { background: #d64a12; transform: translateY(-2px); }
 
-/* ── DONATION ── */
-.donate-sec{background:var(--ink2);padding:96px clamp(20px,5vw,64px);position:relative;overflow:hidden}
-.donate-sec::before{
-  content:'';position:absolute;top:-140px;right:-140px;
-  width:480px;height:480px;border-radius:50%;
-  background:radial-gradient(circle,rgba(245,91,27,.1) 0%,transparent 70%);
-}
-.donate-sec::after{
-  content:'';position:absolute;bottom:-80px;left:5%;
-  width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(37,196,122,.07) 0%,transparent 70%);
-}
-.donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;position:relative;z-index:1;max-width:1160px;margin:0 auto}
-.donate-left .sec-h{color:#fff}
-.donate-left .sec-sub{color:rgba(255,255,255,.55);max-width:420px}
-.impact-rows{margin-top:36px;display:flex;flex-direction:column;gap:15px}
-.ir{display:flex;align-items:flex-start;gap:13px}
-.ir-amt{
-  background:var(--fire);color:#fff;
-  font-family:var(--font-head);font-size:15px;font-weight:700;
-  padding:6px 15px;border-radius:var(--r-full);white-space:nowrap;flex-shrink:0;line-height:1.4;
-}
-.ir-amt.g{background:var(--green-m)}
-.ir-txt{font-size:13px;color:rgba(255,255,255,.6);padding-top:5px;line-height:1.6}
-/* Widget */
-.donate-widget{
-  background:#fff;border-radius:28px;padding:38px;
-  box-shadow:0 28px 72px rgba(0,0,0,.32);
-}
-.w-title{font-family:var(--font-head);font-size:24px;font-weight:800;color:var(--ink);margin-bottom:22px;letter-spacing:-0.5px}
-.freq-bar{
-  display:flex;background:#F3F4F6;border-radius:var(--r-full);
-  padding:4px;gap:4px;margin-bottom:26px;
-}
-.fq-btn{
-  flex:1;padding:10px;border-radius:var(--r-full);border:none;
-  font-family:var(--font-body);font-size:13px;font-weight:700;color:#888;
-  background:transparent;cursor:pointer;transition:all .25s;
-}
-.fq-btn.on{background:var(--ink);color:#fff;box-shadow:0 2px 10px rgba(10,31,20,.35)}
-.amt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
-.ab{
-  padding:14px 4px;border-radius:12px;border:2px solid #E5E7EB;
-  background:#fff;font-family:var(--font-head);font-size:20px;font-weight:800;
-  color:#444;cursor:pointer;text-align:center;
-  transition:border-color .2s,background .2s,color .2s,box-shadow .2s;
-}
-.ab:hover{border-color:var(--green-m);color:var(--ink)}
-.ab.on{border-color:var(--fire);background:var(--fire-l);color:var(--fire-d);box-shadow:0 0 0 3px rgba(245,91,27,.12)}
-.ab.custom{font-size:13px;font-weight:700}
-.cw{position:relative;margin-bottom:18px;display:none}
-.cw.show{display:block}
-.cw .sym{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:700;color:#999}
-.cw input{
-  width:100%;padding:13px 14px 13px 34px;
-  border:2px solid #E5E7EB;border-radius:12px;
-  font-family:var(--font-head);font-size:26px;font-weight:800;color:var(--ink);
-  outline:none;transition:border-color .2s;
-}
-.cw input:focus{border-color:var(--fire)}
-.preview{
-  background:var(--green-p);border-radius:10px;padding:13px 16px;
-  margin-bottom:18px;font-size:13px;color:var(--green);
-  line-height:1.6;border-left:3px solid var(--green-b);min-height:50px;
-}
-.preview strong{color:var(--ink)}
-.pm-label{font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
-.pm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
-.pm-btn{
-  padding:11px 10px;border:2px solid #E5E7EB;border-radius:10px;
-  background:#fff;cursor:pointer;font-family:var(--font-body);
-  font-size:12px;font-weight:700;color:#555;
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  transition:all .2s;
-}
-.pm-btn:hover,.pm-btn.on{border-color:var(--green-m);background:var(--green-p);color:var(--green)}
-.pm-ico{font-size:17px}
-.donate-go{
-  width:100%;padding:17px;background:var(--fire);color:#fff;border:none;
-  border-radius:var(--r-full);font-family:var(--font-head);font-size:20px;
-  font-weight:800;cursor:pointer;letter-spacing:.2px;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  margin-bottom:13px;box-shadow:0 8px 28px rgba(245,91,27,.38);
-  transition:background .2s,transform .2s,box-shadow .2s;
-}
-.donate-go:hover{background:var(--fire-d);transform:translateY(-2px);box-shadow:0 14px 36px rgba(245,91,27,.5)}
-.donate-go svg{width:19px;height:19px}
-.w-note{text-align:center;font-size:11px;color:#aaa;line-height:1.65}
-.w-note a{color:var(--green);text-decoration:none}
+  /* --- Hero Section --- */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    color: var(--white);
+    margin-top: 0;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(10, 31, 20, 0.9) 0%, rgba(10, 31, 20, 0.4) 100%);
+    z-index: 1;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+  .hero-content h1 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1.5rem; }
+  .hero-content p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 600px; opacity: 0.9; }
 
-/* ── TRUST ── */
-.trust-sec{background:var(--cream);padding:96px clamp(20px,5vw,64px)}
-.trust-center{text-align:center;max-width:620px;margin:0 auto 60px}
-.trust-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;max-width:1160px;margin:0 auto}
-.trust-items{display:flex;flex-direction:column;gap:18px}
-.ti{
-  background:#fff;border-radius:var(--r-lg);padding:22px 26px;
-  display:flex;gap:18px;align-items:flex-start;
-  border:1px solid var(--border);box-shadow:var(--shadow-s);
-  transition:transform .25s,box-shadow .25s;
-}
-.ti:hover{transform:translateX(6px);box-shadow:var(--shadow-m)}
-.ti-ic{
-  width:46px;height:46px;border-radius:11px;
-  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;
-}
-.ti:nth-child(1) .ti-ic{background:var(--green-p)}
-.ti:nth-child(2) .ti-ic{background:var(--fire-l)}
-.ti:nth-child(3) .ti-ic{background:var(--gold-l)}
-.ti:nth-child(4) .ti-ic{background:#E5EAFF}
-.ti-h{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.ti-p{font-size:13px;color:var(--muted);line-height:1.7}
-/* Reports col */
-.reports-col h3{
-  font-family:var(--font-head);font-size:24px;font-weight:800;
-  color:var(--ink);letter-spacing:-0.5px;margin-bottom:22px;
-}
-.doc-card{
-  background:#fff;border-radius:12px;padding:18px 22px;
-  display:flex;align-items:center;gap:15px;
-  border:1px solid var(--border);box-shadow:var(--shadow-s);
-  text-decoration:none;margin-bottom:12px;
-  transition:transform .2s,box-shadow .2s;
-}
-.doc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-m)}
-.doc-info{flex:1}
-.doc-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.doc-meta{font-size:11px;color:var(--muted)}
-.doc-ic{
-  width:34px;height:34px;background:var(--green-p);
-  border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;
-}
-/* Bar chart */
-.chart-block{
-  background:#fff;border-radius:var(--r-md);padding:22px;
-  border:1px solid var(--border);margin-top:4px;
-}
-.chart-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
-.bar-rows{display:flex;flex-direction:column;gap:13px}
-.br{display:flex;align-items:center;gap:10px}
-.br-lbl{font-size:12px;color:var(--muted);min-width:96px;text-align:right}
-.br-track{flex:1;height:9px;background:#F3F4F6;border-radius:5px;overflow:hidden}
-.br-fill{height:100%;border-radius:5px;transition:width 1.2s var(--ease)}
-.br-pct{font-size:12px;font-weight:700;color:var(--ink);min-width:30px}
-.br-fill.prog{background:var(--green-m);width:0}
-.br-fill.adm{background:var(--fire);width:0}
-.br-fill.fr{background:var(--gold);width:0}
-.br-fill.res{background:#7BA3FF;width:0}
+  /* --- SDGs Badge --- */
+  .sdg-badges {
+    display: flex; gap: 1rem; margin-bottom: 2rem;
+  }
+  .sdg { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 20px; font-weight: 600; letter-spacing: 1px;}
 
-/* ── TESTIMONIALS ── */
-.testi-sec{background:#fff;padding:96px clamp(20px,5vw,64px)}
-.testi-sec .sec-inner{max-width:1160px;margin:0 auto}
-.testi-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.tc{
-  background:var(--cream);border-radius:var(--r-lg);padding:30px;
-  border:1px solid var(--border);
-  display:flex;flex-direction:column;gap:18px;
-  transition:transform .3s,box-shadow .3s;
-}
-.tc:hover{transform:translateY(-6px);box-shadow:var(--shadow-m)}
-.tc-q{font-family:Georgia,serif;font-size:56px;line-height:.65;color:var(--fire);opacity:.25}
-.tc-txt{font-size:14px;color:#444;line-height:1.82;flex:1;font-style:italic}
-.tc-foot{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #EAEAEA}
-.tc-av{
-  width:44px;height:44px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:15px;flex-shrink:0;
-}
-.tc:nth-child(1) .tc-av{background:var(--green-p);color:var(--green)}
-.tc:nth-child(2) .tc-av{background:var(--fire-l);color:var(--fire-d)}
-.tc:nth-child(3) .tc-av{background:var(--gold-l);color:#7A5000}
-.tc-name{font-size:14px;font-weight:700;color:var(--ink)}
-.tc-role{font-size:11px;color:var(--muted)}
+  /* --- Section Defaults --- */
+  section { padding: 6rem 5%; }
+  .section-header { text-align: center; margin-bottom: 4rem; max-width: 700px; margin-inline: auto; }
+  .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--ink); }
 
-/* ── CTA BELT ── */
-.cta-belt{
-  background:var(--ink);padding:80px clamp(20px,5vw,64px);
-  text-align:center;position:relative;overflow:hidden;
-}
-.cta-belt::before{
-  content:'NEXT GENERATION';
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--font-head);font-size:clamp(80px,15vw,200px);font-weight:800;
-  color:rgba(255,255,255,.02);letter-spacing:-5px;white-space:nowrap;pointer-events:none;
-}
-.cta-belt h2{
-  font-family:var(--font-head);font-size:clamp(36px,6vw,72px);font-weight:800;
-  color:#fff;letter-spacing:-2px;margin-bottom:16px;position:relative;z-index:1;
-}
-.cta-belt h2 em{color:var(--gold)}
-.cta-belt p{font-size:16px;color:rgba(255,255,255,.55);max-width:540px;margin:0 auto 36px;position:relative;z-index:1}
-.cta-belt .btn-fire{font-size:17px;padding:18px 42px;position:relative;z-index:1}
+  /* --- About Layout --- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .about-img { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  .about-text h3 { font-size: 2rem; margin-bottom: 1.5rem; }
+  .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #444; }
 
-/* ── FOOTER ── */
-footer{background:#030B06;padding:72px clamp(20px,5vw,64px) 30px}
-.ft-inner{max-width:1160px;margin:0 auto}
-.ft-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.8fr;gap:48px;margin-bottom:56px}
-.ft-brand p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.85;margin:18px 0 22px;max-width:270px}
-.ft-socials{display:flex;gap:9px}
-.soc-btn{
-  width:34px;height:34px;border-radius:8px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,.4);font-size:13px;font-weight:700;text-decoration:none;
-  transition:background .2s,color .2s;
-}
-.soc-btn:hover{background:var(--fire);color:#fff;border-color:var(--fire)}
-.ft-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:18px}
-.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.ft-col ul a{font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s}
-.ft-col ul a:hover{color:var(--green-b)}
-.ft-nl h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:12px}
-.ft-nl p{font-size:13px;color:rgba(255,255,255,.38);margin-bottom:16px;line-height:1.7}
-.nl-form{display:flex;gap:8px}
-.nl-input{
-  flex:1;padding:11px 15px;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  border-radius:var(--r-full);color:#fff;font-family:var(--font-body);font-size:13px;outline:none;
-  transition:border-color .2s;
-}
-.nl-input::placeholder{color:rgba(255,255,255,.25)}
-.nl-input:focus{border-color:var(--green-b)}
-.nl-btn{
-  padding:11px 18px;background:var(--fire);color:#fff;border:none;
-  border-radius:var(--r-full);font-family:var(--font-body);font-size:13px;font-weight:700;
-  cursor:pointer;transition:background .2s;white-space:nowrap;
-}
-.nl-btn:hover{background:var(--fire-d)}
-.ft-contact{margin-top:18px;font-size:12px;color:rgba(255,255,255,.3);line-height:2}
-.ft-bottom{
-  border-top:1px solid rgba(255,255,255,.05);
-  padding-top:24px;display:flex;align-items:center;
-  justify-content:space-between;flex-wrap:wrap;gap:14px;
-}
-.ft-badges{display:flex;gap:10px;flex-wrap:wrap}
-.reg-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  background:rgba(37,196,122,.1);border:1px solid rgba(37,196,122,.2);
-  border-radius:6px;padding:5px 11px;font-size:10px;font-weight:700;
-  color:var(--green-b);letter-spacing:.5px;
-}
-.reg-badge::before{content:'✓'}
-.ft-copy{font-size:11px;color:rgba(255,255,255,.2)}
-.ft-copy a{color:rgba(255,255,255,.2);text-decoration:none;margin-left:12px}
+  /* --- Programs Layout --- */
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+  .card-img { height: 250px; width: 100%; object-fit: cover; }
+  .card-body { padding: 2rem; }
+  .card-body h4 { font-family: 'Syne', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; }
 
-/* ── UTILS ── */
-.ru{
-  opacity:0;transform:translateY(22px);
-  transition:opacity .6s var(--ease),transform .6s var(--ease);
-}
-.ru.vis{opacity:1;transform:translateY(0)}
-.ru:nth-child(2){transition-delay:.1s}.ru:nth-child(3){transition-delay:.2s}.ru:nth-child(4){transition-delay:.3s}
+  /* --- Donate Section --- */
+  .donate-section { background: var(--ink); color: var(--white); text-align: center; }
+  .donate-section h2 { color: var(--white); }
+  .donate-box {
+    background: var(--white);
+    color: var(--ink);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    border-radius: 16px;
+  }
+  .freq-toggle { display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: center; }
+  .btn-outline { background: transparent; border: 2px solid #e0e0e0; color: var(--ink); }
+  .btn-outline.active { border-color: var(--green-brand); background: var(--green-brand); color: var(--white); }
+  
+  .amt-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .amt-btn { padding: 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-weight: 700; cursor: pointer; transition: var(--transition); background: none;}
+  .amt-btn.active { border-color: var(--fire); background: rgba(245, 91, 27, 0.1); color: var(--fire); }
 
-/* ── RESPONSIVE ── */
-@media(max-width:960px){
-  .stats-row{grid-template-columns:repeat(2,1fr)}
-  .prog-grid{grid-template-columns:1fr}
-  .donate-grid{grid-template-columns:1fr;gap:40px}
-  .trust-layout{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
-  .ft-grid{grid-template-columns:1fr 1fr;gap:32px}
-}
-@media(max-width:640px){
-  .hero h1{font-size:44px;letter-spacing:-1.5px}
-  .hero-btns{flex-direction:column}
-  .stats-row{grid-template-columns:1fr}
-  .amt-grid{grid-template-columns:repeat(2,1fr)}
-  .pm-grid{grid-template-columns:1fr}
-  .nav-menu{display:none}
-  .nav-burger{display:flex}
-  .ft-grid{grid-template-columns:1fr}
-  .hero-circle-1,.hero-circle-2{display:none}
-  .sec-top{flex-direction:column;align-items:flex-start}
-  .testi-head{flex-direction:column;align-items:flex-start}
-  .founder-layout{grid-template-columns:1fr}
-  .founder-img-col{display:none}
-  .team-grid{grid-template-columns:1fr}
-}
+  /* --- Footer --- */
+  footer { background: #05100a; color: #fff; padding: 4rem 5% 2rem; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+  .footer-grid p { opacity: 0.7; margin-top: 1rem; }
 
-/* ── FOUNDER SECTION ── */
-.founder-sec{
-  background:var(--ink);padding:0;
-  position:relative;overflow:hidden;
-}
-.founder-sec::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 55% 70% at 0% 50%,rgba(37,196,122,.1) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 50% at 100% 20%,rgba(245,91,27,.08) 0%,transparent 55%);
-  pointer-events:none;
-}
-.founder-layout{
-  display:grid;grid-template-columns:1fr 1.1fr;
-  min-height:640px;position:relative;z-index:1;
-  max-width:1400px;margin:0 auto;
-}
-.founder-img-col{
-  position:relative;overflow:hidden;
-}
-.founder-img-placeholder{
-  position:absolute;inset:0;
-  background:linear-gradient(160deg,#0A2819 0%,#1A5C3A 60%,#0A2819 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.founder-initials-bg{
-  width:220px;height:220px;border-radius:50%;
-  background:rgba(37,196,122,.12);border:2px solid rgba(37,196,122,.2);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-size:72px;font-weight:800;
-  color:rgba(37,196,122,.5);letter-spacing:-4px;
-  position:relative;
-}
-.founder-initials-bg::before{
-  content:'';position:absolute;
-  width:270px;height:270px;border-radius:50%;
-  border:1px solid rgba(37,196,122,.1);
-}
-.founder-img-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to right,transparent 40%,var(--ink) 100%);
-  z-index:2;
-}
-/* Replace the placeholder with a real photo: */
-/* .founder-img-placeholder img { width:100%; height:100%; object-fit:cover; object-position:top center; } */
-.founder-content-col{
-  padding:80px 64px 80px 48px;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.founder-kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,190,58,.1);border:1px solid rgba(255,190,58,.25);
-  color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  padding:6px 14px;border-radius:var(--r-full);margin-bottom:28px;
-}
-.founder-quote-mark{
-  font-family:Georgia,serif;font-size:120px;line-height:.6;
-  color:var(--fire);opacity:.18;margin-bottom:8px;display:block;
-}
-.founder-message{
-  font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.82);
-  line-height:1.75;font-weight:300;font-style:italic;
-  margin-bottom:32px;
-}
-.founder-message strong{color:#fff;font-weight:600;font-style:normal}
-.founder-sig-row{
-  display:flex;align-items:center;gap:18px;
-  padding-top:28px;border-top:1px solid rgba(255,255,255,.08);
-  margin-bottom:36px;
-}
-.founder-avatar{
-  width:60px;height:60px;border-radius:50%;
-  background:linear-gradient(135deg,var(--green-m),var(--green-b));
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-size:20px;font-weight:800;color:#fff;
-  flex-shrink:0;border:2px solid rgba(37,196,122,.4);
-}
-.founder-name{
-  font-family:var(--font-head);font-size:20px;font-weight:800;
-  color:#fff;letter-spacing:-0.3px;
-}
-.founder-title{font-size:13px;color:rgba(255,255,255,.5);margin-top:2px}
-.founder-badges{display:flex;flex-wrap:wrap;gap:8px}
-.f-badge{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  color:rgba(255,255,255,.55);font-size:11px;font-weight:600;
-  padding:6px 13px;border-radius:var(--r-full);letter-spacing:.3px;
-  transition:background .2s,color .2s;
-}
-.f-badge:hover{background:rgba(37,196,122,.15);color:var(--green-b);border-color:rgba(37,196,122,.25)}
-.f-badge.hl{background:rgba(245,91,27,.12);border-color:rgba(245,91,27,.25);color:rgba(255,140,100,.9)}
-.founder-social{
-  display:inline-flex;align-items:center;gap:7px;margin-top:24px;
-  color:rgba(255,255,255,.4);font-size:12px;font-weight:600;
-  text-decoration:none;transition:color .2s;
-}
-.founder-social:hover{color:var(--green-b)}
-.founder-social svg{width:15px;height:15px}
-
-/* ── TEAM SECTION ── */
-.team-sec{background:var(--cream);padding:96px clamp(20px,5vw,64px)}
-.team-sec .sec-inner{max-width:1160px;margin:0 auto}
-.team-top{text-align:center;margin-bottom:64px}
-.team-top .sec-sub{margin:14px auto 0;max-width:520px}
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
-}
-/* Founder card gets 2-col span */
-.team-card{
-  background:#fff;border-radius:var(--r-lg);overflow:hidden;
-  border:1px solid var(--border);box-shadow:var(--shadow-s);
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
-  position:relative;
-}
-.team-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-l)}
-.team-card.founder-card{grid-column:span 2}
-.tc-top{
-  height:180px;position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-.founder-card .tc-top{height:220px}
-.tc-top-bg-1{background:linear-gradient(135deg,#073B24 0%,#1A8C57 100%)}
-.tc-top-bg-2{background:linear-gradient(135deg,#1A2260 0%,#2E4DA8 100%)}
-.tc-top-bg-3{background:linear-gradient(135deg,#3D1060 0%,#7B2AA8 100%)}
-.tc-top-bg-4{background:linear-gradient(135deg,#5A1E00 0%,#A83600 100%)}
-.tc-top-bg-5{background:linear-gradient(135deg,#1A3828 0%,#0F5C38 100%)}
-.tc-initials{
-  font-family:var(--font-head);font-size:48px;font-weight:800;
-  color:rgba(255,255,255,.18);letter-spacing:-3px;
-  user-select:none;
-}
-.founder-card .tc-initials{font-size:72px}
-.tc-role-tag{
-  position:absolute;bottom:14px;left:14px;
-  background:rgba(0,0,0,.35);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.12);
-  color:rgba(255,255,255,.85);font-size:10px;font-weight:700;
-  letter-spacing:1.5px;text-transform:uppercase;
-  padding:5px 11px;border-radius:var(--r-full);
-}
-.tc-body{padding:22px 24px 26px}
-.founder-card .tc-body{padding:24px 28px 28px}
-.tc-name{
-  font-family:var(--font-head);font-size:18px;font-weight:800;
-  color:var(--ink);letter-spacing:-0.3px;margin-bottom:3px;
-}
-.founder-card .tc-name{font-size:22px}
-.tc-position{font-size:12px;font-weight:700;color:var(--green-m);margin-bottom:10px;letter-spacing:.3px}
-.tc-bio{font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:16px}
-.tc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.tc-tag{
-  font-size:10px;font-weight:700;padding:4px 10px;
-  border-radius:var(--r-full);background:var(--green-p);color:#074D2A;
-}
-.founder-card .tc-tag{font-size:11px;padding:5px 12px}
-.tc-links{display:flex;gap:8px}
-.tc-link{
-  width:30px;height:30px;border-radius:8px;
-  background:#F3F4F6;display:flex;align-items:center;justify-content:center;
-  color:var(--muted);text-decoration:none;font-size:12px;font-weight:700;
-  transition:background .2s,color .2s;
-}
-.tc-link:hover{background:var(--ink);color:#fff}
-.tc-link.x-link:hover{background:#000;color:#fff}
-.team-placeholder{
-  border:2px dashed #D1D5DB;background:transparent;
-  box-shadow:none;display:flex;align-items:center;justify-content:center;
-  min-height:320px;transition:border-color .2s,background .2s;
-}
-.team-placeholder:hover{background:var(--green-p);border-color:var(--green-m);transform:none;box-shadow:none}
-.ph-inner{text-align:center;padding:24px}
-.ph-icon{font-size:32px;margin-bottom:12px;display:block;opacity:.4}
-.ph-label{font-size:13px;font-weight:700;color:var(--muted)}
-.ph-sub{font-size:12px;color:#A0ABA3;margin-top:4px}
-
-@media(max-width:960px){
-  .team-grid{grid-template-columns:repeat(2,1fr)}
-  .team-card.founder-card{grid-column:span 2}
-  .founder-content-col{padding:60px 40px}
-}
-@media(max-width:640px){
-  .team-grid{grid-template-columns:1fr}
-  .team-card.founder-card{grid-column:span 1}
-  .founder-content-col{padding:48px 24px}
-  .founder-message{font-size:16px}
-}
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; } /* Add hamburger menu logic for mobile */
+    .hero-content h1 { font-size: 2.5rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#home" class="logo-wrap">
-    <div class="logo-mark">HN</div>
-    <div class="logo-text">Hope for the Next Generation
-      <small>Mbale City · Uganda</small>
-    </div>
-  </a>
-  <ul class="nav-menu">
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#trust">Reports</a></li>
-    <li><a href="#stories">Stories</a></li>
-    <li><a href="#team">Our Team</a></li>
-    <li><a href="#donate" class="nav-cta">Donate Now ↑</a></li>
-  </ul>
-  <button class="nav-burger" id="burger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<header>
+  <div class="logo">HNG.</div>
+  <nav class="nav-links">
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#impact">Impact</a>
+    <a href="#donate" class="btn btn-primary">Donate Now</a>
+  </nav>
+</header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg-layer"></div>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-circle-1"></div>
-  <div class="hero-circle-2"></div>
-  <div class="hero-inner">
-    <div class="eyebrow"><span class="eyebrow-dot"></span>Mbale City, Uganda</div>
-    <h1>
-      Hope<br>for the<br><span class="em">Next</span><br><span class="hi">Generation</span>
-    </h1>
-    <p class="hero-p">
-      <strong>Restoring hope, unlocking potential.</strong> We empower vulnerable children, youth, girls, and families in Mbale City through grassroots sports, quality education, advocacy, and sustainable community innovation.
-    </p>
-    <div class="hero-btns">
-      <a href="#donate" class="btn-fire">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        Donate to Transform Lives
-      </a>
-      <a href="#programs" class="btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-        See Our Programs
-      </a>
+<section class="hero">
+  <img src="IMG_7891.JPG" alt="HNG Community in Mbale" class="hero-bg">
+  <div class="hero-content">
+    <div class="sdg-badges">
+      <span class="sdg">SDG 4</span>
+      <span class="sdg">SDG 5</span>
+      <span class="sdg">SDG 13</span>
+      <span class="sdg">SDG 16</span>
     </div>
-    <div class="hero-trust">
-      <div class="trust-chip">🏛 Registered NGO · Uganda</div>
-      <div class="trust-chip">🔒 Secure Donations</div>
-      <div class="trust-chip">🌍 Globally Trusted</div>
-      <div class="trust-chip">🧒 Child-Safe Organisation</div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    Scroll
+    <h1>Hope for the Next Generation</h1>
+    <p>Empowering vulnerable children, youth, and communities in Mbale City through grassroots sports, quality education, and sustainable livelihoods.</p>
+    <a href="#donate" class="btn btn-primary" style="display: inline-block; padding: 1rem 2rem; font-size: 1.1rem;">Support Our Mission</a>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-band" id="impact">
-  <div class="stats-inner">
-    <div class="stats-head ru">
-      <h2>Our Impact at a Glance</h2>
-      <p>Every number represents a life changed, a future secured, a community transformed.</p>
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="1E8A0173.jpeg" alt="HNG Community Impact">
     </div>
-    <div class="stats-row">
-      <div class="s-card ru">
-        <span class="s-icon">🧒</span>
-        <span class="s-num" data-t="2500"><span class="c">0</span>+</span>
-        <span class="s-label">Vulnerable Children<br>Empowered</span>
-      </div>
-      <div class="s-card ru">
-        <span class="s-icon">🏉</span>
-        <span class="s-num" data-t="850"><span class="c">0</span>+</span>
-        <span class="s-label">Young Athletes &amp; Rugby<br>Players Trained</span>
-      </div>
-      <div class="s-card ru">
-        <span class="s-icon">👩</span>
-        <span class="s-num" data-t="1200"><span class="c">0</span>+</span>
-        <span class="s-label">Girls &amp; Women<br>Upskilled</span>
-      </div>
-      <div class="s-card ru">
-        <span class="s-icon">💡</span>
-        <span class="s-num" data-t="45"><span class="c">0</span></span>
-        <span class="s-label">Community Innovations<br>Launched</span>
-      </div>
+    <div class="about-text">
+      <h2>Who We Are</h2>
+      <h3>A catalyst for lasting change in Eastern Uganda.</h3>
+      <p>Hope for the Next Generation (HNG) is a registered community-based organisation working at the intersection of child protection, gender equality, and education in Mbale City.</p>
+      <p>We believe that true transformation happens at the grassroots. By amplifying the voices of our beneficiaries and aligning with global sustainable development frameworks, we are building a safer, more equitable future for the next generation.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- PROGRAMS -->
-<section class="programs-sec" id="programs">
-  <div class="sec-inner">
-    <div class="sec-top">
-      <div>
-        <span class="sec-kicker">What We Do</span>
-        <h2 class="sec-h">Four Tracks of <em>Real Impact</em></h2>
-        <p class="sec-sub">Our integrated, community-led approach builds resilience through four interconnected programme areas — each addressing a critical dimension of vulnerability in Mbale.</p>
+<section id="programs" style="background: #fff;">
+  <div class="section-header">
+    <h2>Our Core Programs</h2>
+    <p>Targeted interventions designed to uplift, educate, and protect.</p>
+  </div>
+  
+  <div class="programs-grid">
+    <div class="card">
+      <img src="IMG_2033.jpeg" alt="Grassroots Sports" class="card-img">
+      <div class="card-body">
+        <h4>Grassroots Sports & Play</h4>
+        <p>Using sports as a vehicle for life skills training, community cohesion, and physical well-being among youth.</p>
       </div>
-      <a href="#donate" class="btn-fire" style="font-size:14px;padding:13px 24px;flex-shrink:0;">
-        Support a Programme
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
     </div>
-    <div class="prog-grid">
-      <!-- Track 1 -->
-      <div class="pc ru">
-        <div class="pc-head">
-          <div class="pc-track">Track 01</div>
-          <div class="pc-ico">📚</div>
-          <div class="pc-title">Education &amp;<br>Life-Skills</div>
-          <div class="pc-tag">School-support &amp; quality learning</div>
-        </div>
-        <div class="pc-body">
-          <p class="pc-desc">We deliver school bursaries, learning materials, mentorship, and life-skills training to vulnerable children and young persons — systematically breaking intergenerational cycles of poverty and building confident, capable young minds.</p>
-          <div class="pc-pills">
-            <span class="pill">School Bursaries</span>
-            <span class="pill">Literacy Camps</span>
-            <span class="pill">Mentorship</span>
-            <span class="pill">Life-Skills Training</span>
-          </div>
-          <a href="#education" class="pc-link">Explore this programme <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+    
+    <div class="card">
+      <img src="0b211a3e-0cb9-4516-bcb9-88137433b131.jpg" alt="Education" class="card-img">
+      <div class="card-body">
+        <h4>Quality Education</h4>
+        <p>Ensuring access to inclusive, equitable education and promoting lifelong learning opportunities for all children.</p>
       </div>
-      <!-- Track 2 -->
-      <div class="pc ru">
-        <div class="pc-head">
-          <div class="pc-track">Track 02</div>
-          <div class="pc-ico">🏉</div>
-          <div class="pc-title">Grassroots Sports<br>&amp; Talent</div>
-          <div class="pc-tag">Rugby, wellness &amp; holistic development</div>
-        </div>
-        <div class="pc-body">
-          <p class="pc-desc">Using rugby and community sports as powerful tools for discipline, teamwork, and physical wellness — we channel youth energy into structured programmes that develop confident athletes, resilient leaders, and future change-makers in Mbale.</p>
-          <div class="pc-pills">
-            <span class="pill">Rugby Academies</span>
-            <span class="pill">Talent Scouting</span>
-            <span class="pill">Coaching Clinics</span>
-            <span class="pill">Sports Equipment</span>
-          </div>
-          <a href="#sports" class="pc-link">Explore this programme <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <!-- Track 3 -->
-      <div class="pc ru">
-        <div class="pc-head">
-          <div class="pc-track">Track 03</div>
-          <div class="pc-ico">⚖️</div>
-          <div class="pc-title">Advocacy &amp;<br>Juvenile Justice</div>
-          <div class="pc-tag">Child rights, protection &amp; rehabilitation</div>
-        </div>
-        <div class="pc-body">
-          <p class="pc-desc">We advocate for juvenile justice and child rights protection — actively preventing abuse and violence while providing professional rehabilitation, counselling, and restorative support services to affected children, youth, and their caregivers across Mbale.</p>
-          <div class="pc-pills">
-            <span class="pill">Legal Aid</span>
-            <span class="pill">Counselling</span>
-            <span class="pill">Safe Spaces</span>
-            <span class="pill">Policy Advocacy</span>
-          </div>
-          <a href="#advocacy" class="pc-link">Explore this programme <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <!-- Track 4 -->
-      <div class="pc ru">
-        <div class="pc-head">
-          <div class="pc-track">Track 04</div>
-          <div class="pc-ico">♀</div>
-          <div class="pc-title">Gender Equality<br>&amp; Inclusion</div>
-          <div class="pc-tag">Girls, women &amp; PWDs</div>
-        </div>
-        <div class="pc-body">
-          <p class="pc-desc">Through targeted outreach, girls' camps, skills-building workshops, and livelihood training, we empower girls, women, and Persons with Disabilities (PWDs) — promoting genuine gender equality, inclusion, and sustainable self-reliance across communities.</p>
-          <div class="pc-pills">
-            <span class="pill">Girls' Camps</span>
-            <span class="pill">Vocational Skills</span>
-            <span class="pill">PWD Inclusion</span>
-            <span class="pill">Livelihood Training</span>
-          </div>
-          <a href="#gender" class="pc-link">Explore this programme <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+    </div>
+    
+    <div class="card">
+      <img src="1E8A0173.jpeg" alt="Child Protection" class="card-img">
+      <div class="card-body">
+        <h4>Child Protection & Advocacy</h4>
+        <p>Creating safe environments and advocating for the rights of girls and vulnerable youth in our communities.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DONATION -->
-<section class="donate-sec" id="donate">
-  <div class="donate-grid">
-    <div class="donate-left">
-      <span class="sec-kicker" style="color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:4px;display:inline-block;margin-bottom:14px">Make a Difference Today</span>
-      <h2 class="sec-h" style="color:#fff">Your Support Fuels <em>Sustainable Change</em> in Mbale</h2>
-      <p class="sec-sub">Every contribution flows directly into programmes that transform lives. Here is exactly what your donation achieves on the ground:</p>
-      <div class="impact-rows">
-        <div class="ir"><div class="ir-amt">$15</div><p class="ir-txt">Provides a complete set of school materials — books, pens, and a bag — for one child for an entire term.</p></div>
-        <div class="ir"><div class="ir-amt">$50</div><p class="ir-txt">Funds community sports equipment and one full month of life-skills coaching for a young athlete.</p></div>
-        <div class="ir"><div class="ir-amt">$100</div><p class="ir-txt">Sponsors a girl's attendance at our empowerment camp plus a vocational skills workshop for a woman rebuilding her livelihood.</p></div>
-        <div class="ir"><div class="ir-amt g">Monthly</div><p class="ir-txt">Sustains year-round rehabilitation, counselling, and grassroots sports programmes with a recurring gift of any amount.</p></div>
-      </div>
+<section id="donate" class="donate-section">
+  <div class="section-header">
+    <h2>Invest in the Future</h2>
+    <p style="color: rgba(255,255,255,0.8);">Your support directly impacts lives in Mbale City.</p>
+  </div>
+  
+  <div class="donate-box">
+    <div class="freq-toggle">
+      <button class="btn btn-outline active" onclick="setFreq('once', this)">One-Time</button>
+      <button class="btn btn-outline" onclick="setFreq('monthly', this)">Monthly</button>
+    </div>
+    
+    <div class="amt-grid">
+      <button class="amt-btn active" onclick="setAmt(25, this)">$25</button>
+      <button class="amt-btn" onclick="setAmt(50, this)">$50</button>
+      <button class="amt-btn" onclick="setAmt(100, this)">$100</button>
+    </div>
+    
+    <button class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.25rem;" onclick="processDonation()">Donate Now</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">HNG.</h2>
+      <p>Hope for the Next Generation<br>Mbale City, Uganda</p>
+      <p>Registered under the NGO Act, 2016.</p>
     </div>
     <div>
-      <div class="donate-widget">
-        <div class="w-title">Choose Your Gift</div>
-        <div class="freq-bar">
-          <button class="fq-btn on" id="fq-once" onclick="setFreq('once')">One-Time</button>
-          <button class="fq-btn" id="fq-monthly" onclick="setFreq('monthly')">Monthly Recurring</button>
-        </div>
-        <div class="amt-grid">
-          <button class="ab on" onclick="pickAmt(25,this)">$25</button>
-          <button class="ab" onclick="pickAmt(50,this)">$50</button>
-          <button class="ab" onclick="pickAmt(100,this)">$100</button>
-          <button class="ab custom" onclick="showCustom(this)">Custom</button>
-        </div>
-        <div class="cw" id="cw">
-          <span class="sym">$</span>
-          <input type="number" id="ci" placeholder="Your amount" oninput="refreshPreview()">
-        </div>
-        <div class="preview" id="prev">
-          <strong>Your $25 one-time gift</strong> provides school materials for one child — a direct step toward breaking the cycle of poverty in Mbale.
-        </div>
-        <div class="pm-label">Pay with</div>
-        <div class="pm-grid">
-          <button class="pm-btn on" onclick="pickPay(this)"><span class="pm-ico">💳</span>Card (Stripe)</button>
-          <button class="pm-btn" onclick="pickPay(this)"><span class="pm-ico">🅿</span>PayPal</button>
-          <button class="pm-btn" onclick="pickPay(this)"><span class="pm-ico">📱</span>MTN / Airtel Money</button>
-          <button class="pm-btn" onclick="pickPay(this)"><span class="pm-ico">🌍</span>Flutterwave / Pesapal</button>
-        </div>
-        <button class="donate-go" onclick="goDonate()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          Donate Now
-        </button>
-        <p class="w-note">🔒 Encrypted &amp; secure. Hope for the Next Generation is a registered NGO in Uganda. Donations may be tax-deductible. <a href="#">Learn more →</a></p>
-      </div>
+      <h4 style="margin-bottom: 1rem;">Explore</h4>
+      <p><a href="#about">About Us</a></p>
+      <p><a href="#programs">Our Work</a></p>
+      <p><a href="#impact">Financials</a></p>
+    </div>
+    <div>
+      <h4 style="margin-bottom: 1rem;">Connect</h4>
+      <p>info@hng.org.ug</p>
+      <p>Advancing SDGs 4, 5, 13 & 16</p>
     </div>
   </div>
-</section>
-
-<!-- TRUST -->
-<section class="trust-sec" id="trust">
-  <div class="trust-center">
-    <span class="sec-kicker" style="color:var(--green-m)">Accountability &amp; Transparency</span>
-    <h2 class="sec-h">We Earn Your <em>Trust</em><br>Every Day</h2>
-    <p class="sec-sub" style="margin:14px auto 0;max-width:100%">Community sustainability and family improvement sit at the heart of all we do. We are committed to radical transparency so donors worldwide can give with full confidence.</p>
-  </div>
-  <div class="trust-layout">
-    <div class="trust-items">
-      <div class="ti ru">
-        <div class="ti-ic">🌿</div>
-        <div><div class="ti-h">Tackling Poverty &amp; Health</div><p class="ti-p">We partner with families to deliver training, health education, and access to life-changing solutions that address poverty, health, and environmental challenges at the household level.</p></div>
-      </div>
-      <div class="ti ru">
-        <div class="ti-ic">🤝</div>
-        <div><div class="ti-h">Community-Led Innovation</div><p class="ti-p">Our collaborative projects are designed and driven by local people — ensuring every intervention is culturally grounded, sustainable, and genuinely improves livelihoods for disadvantaged families.</p></div>
-      </div>
-      <div class="ti ru">
-        <div class="ti-ic">📊</div>
-        <div><div class="ti-h">Financial Accountability</div><p class="ti-p">We publish annual reports, audited accounts, and programme outcome data. Our independent board reviews all financial decisions with zero tolerance for misuse of donor funds.</p></div>
-      </div>
-      <div class="ti ru">
-        <div class="ti-ic">🌍</div>
-        <div><div class="ti-h">Environmental Responsibility</div><p class="ti-p">From tree-planting drives to sustainable farming demonstrations, our programmes integrate environmental stewardship as a core pillar of long-term community resilience.</p></div>
-      </div>
-    </div>
-    <div class="reports-col ru">
-      <h3>Documents &amp; Reports</h3>
-      <a href="#" class="doc-card"><div class="doc-info"><div class="doc-title">Annual Report 2024</div><div class="doc-meta">Programmes · Finance · Outcomes · PDF, 2.4 MB</div></div><div class="doc-ic">📄</div></a>
-      <a href="#" class="doc-card"><div class="doc-info"><div class="doc-title">Audited Financial Statements 2024</div><div class="doc-meta">ICPAU Certified · PDF, 890 KB</div></div><div class="doc-ic">📊</div></a>
-      <a href="#" class="doc-card"><div class="doc-info"><div class="doc-title">Impact &amp; Outcomes Report Q1 2025</div><div class="doc-meta">Programme Data · Beneficiary Stories · PDF, 1.1 MB</div></div><div class="doc-ic">📈</div></a>
-      <a href="#" class="doc-card"><div class="doc-info"><div class="doc-title">Child Safeguarding Policy</div><div class="doc-meta">Mandatory · Updated January 2025 · PDF, 450 KB</div></div><div class="doc-ic">🔒</div></a>
-      <div class="chart-block">
-        <div class="chart-title">Fund Allocation — How Your Donation Is Spent</div>
-        <div class="bar-rows">
-          <div class="br"><span class="br-lbl">Programmes</span><div class="br-track"><div class="br-fill prog" data-w="72%"></div></div><span class="br-pct">72%</span></div>
-          <div class="br"><span class="br-lbl">Administration</span><div class="br-track"><div class="br-fill adm" data-w="14%"></div></div><span class="br-pct">14%</span></div>
-          <div class="br"><span class="br-lbl">Fundraising</span><div class="br-track"><div class="br-fill fr" data-w="10%"></div></div><span class="br-pct">10%</span></div>
-          <div class="br"><span class="br-lbl">Reserve Fund</span><div class="br-track"><div class="br-fill res" data-w="4%"></div></div><span class="br-pct">4%</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testi-sec" id="stories">
-  <div class="sec-inner">
-    <div class="testi-head">
-      <div>
-        <span class="sec-kicker">Community Voices</span>
-        <h2 class="sec-h">Stories of <em>Transformation</em></h2>
-      </div>
-      <a href="#all-stories" class="btn-ghost" style="border-color:rgba(0,0,0,.15);color:var(--ink);font-size:13px;padding:11px 22px">Read All Stories →</a>
-    </div>
-    <div class="testi-grid">
-      <div class="tc ru">
-        <div class="tc-q">"</div>
-        <p class="tc-txt">Before the rugby programme I was drifting and skipping school. The coaches gave me structure, discipline, and a reason to work hard every morning. Today I am team captain and my grades have improved enormously. Hope for the Next Generation changed my life.</p>
-        <div class="tc-foot"><div class="tc-av">KO</div><div><div class="tc-name">Kato Oliver</div><div class="tc-role">Rugby Programme Graduate, Age 17 — Mbale City</div></div></div>
-      </div>
-      <div class="tc ru">
-        <div class="tc-q">"</div>
-        <p class="tc-txt">The girls' camp opened my eyes to what is possible for me. I learned tailoring skills, financial management, and that I have rights and a voice. I now run a small sewing business and am saving for my children's education. I am deeply grateful.</p>
-        <div class="tc-foot"><div class="tc-av">NA</div><div><div class="tc-name">Nabirye Annet</div><div class="tc-role">Women's Livelihood Programme — Butaleja District</div></div></div>
-      </div>
-      <div class="tc ru">
-        <div class="tc-q">"</div>
-        <p class="tc-txt">My son was going down a dangerous path. The counsellors worked with our whole family. He is now in secondary school on a full bursary and dreams of becoming an engineer. Watching him grow into a young man full of purpose is everything to us.</p>
-        <div class="tc-foot"><div class="tc-av">WJ</div><div><div class="tc-name">Wafula James</div><div class="tc-role">Parent — Juvenile Justice Programme, Mbale City</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BELT -->
-<div class="cta-belt">
-
-<!-- ── WORD FROM THE FOUNDER ── -->
-<section class="founder-sec" id="founder">
-  <div class="founder-layout">
-    <!-- Left: Photo column -->
-    <div class="founder-img-col">
-      <div class="founder-img-placeholder">
-        <!-- Replace with: <img src="ivan-magomu.jpg" alt="Ivan Magomu — Founder &amp; CEO"> -->
-        <div class="founder-initials-bg">IM</div>
-      </div>
-      <div class="founder-img-overlay"></div>
-    </div>
-    <!-- Right: Message -->
-    <div class="founder-content-col">
-      <div class="founder-kicker">✦ Word from the Founder</div>
-      <span class="founder-quote-mark">"</span>
-      <p class="founder-message">
-        Growing up, I saw first-hand how <strong>sport saved lives in Eastern Uganda</strong> — not just bodies, but minds, futures, and entire families. Rugby gave me discipline, purpose, a scholarship, and eventually a path to law. It took me to the Commonwealth Games and the Rugby World Cup. But I never forgot where I came from.
-      </p>
-      <p class="founder-message" style="margin-top:-16px">
-        Back in Mbale, I watched brilliant children with no access to school materials, talented athletes with no pitch to play on, and young women with no safe space to grow. I knew that the same transformative power sport and education gave me <strong>belonged to every single one of them.</strong> That conviction founded Hope for the Next Generation.
-      </p>
-      <p class="founder-message" style="margin-top:-16px">
-        We are not a charity that hands out relief and moves on. We build <strong>resilience, rights, and real opportunity</strong> — one child, one athlete, one family at a time. When you support HNG, you are not donating to an organisation. You are investing in the next generation of Ugandan leaders. And I give you my word: <strong>every shilling reaches them.</strong>
-      </p>
-      <div class="founder-sig-row">
-        <div class="founder-avatar">IM</div>
-        <div>
-          <div class="founder-name">Ivan Magomu</div>
-          <div class="founder-title">Founder &amp; CEO — Hope for the Next Generation</div>
-        </div>
-      </div>
-      <div class="founder-badges">
-        <span class="f-badge hl">🏉 Uganda Rugby Cranes Captain</span>
-        <span class="f-badge hl">⚖️ Sports Lawyer</span>
-        <span class="f-badge">Commonwealth Games 2018 — Gold Coast</span>
-        <span class="f-badge">Rugby World Cup Sevens 2018 — San Francisco</span>
-        <span class="f-badge">Club Captain, Stanbic Black Pirates RFC</span>
-        <span class="f-badge">LLB, Uganda Christian University</span>
-        <span class="f-badge">LeO Africa YELP Fellow 2023</span>
-        <span class="f-badge">Athletes Rights Champion</span>
-      </div>
-      <a href="https://x.com/ivan_magomu" target="_blank" rel="noopener" class="founder-social">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.402 6.231H2.744l7.737-8.854L1.57 2.25h6.92l4.258 5.636L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
-        Follow Ivan on X / Twitter @ivan_magomu →
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── TEAM SECTION ── -->
-<section class="team-sec" id="team">
-  <div class="sec-inner">
-    <div class="team-top">
-      <span class="sec-kicker">The People Behind the Mission</span>
-      <h2 class="sec-h">Meet Our <em>Team</em></h2>
-      <p class="sec-sub">A passionate group of lawyers, educators, athletes, and community builders — united by one purpose: transforming the next generation in Mbale.</p>
-    </div>
-    <div class="team-grid">
-
-      <!-- IVAN MAGOMU — Founder (spans 2 cols) -->
-      <div class="team-card founder-card ru">
-        <div class="tc-top tc-top-bg-1">
-          <div class="tc-initials">IM</div>
-          <div class="tc-role-tag">Founder &amp; CEO</div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">Ivan Magomu</div>
-          <div class="tc-position">Founder &amp; CEO · Sports Lawyer · Uganda Rugby Cranes Captain</div>
-          <p class="tc-bio">Ivan is a practising Sports Lawyer (Senior Associate, AF Mpanga Advocates), Captain of the Uganda Rugby 15's National Team, and Club Captain at Stanbic Black Pirates RFC. A Commonwealth Games and Rugby World Cup Sevens representative, Ivan founded HNG to channel the transformative power of sport and education back into his home community of Mbale. He holds an LLB from Uganda Christian University, a Bar Course diploma from the Law Development Centre, and is a LeO Africa YELP Fellow (2023).</p>
-          <div class="tc-tags">
-            <span class="tc-tag">🏉 Uganda Rugby Cranes</span>
-            <span class="tc-tag">⚖️ Sports &amp; Human Rights Law</span>
-            <span class="tc-tag">Commonwealth Games 2018</span>
-            <span class="tc-tag">RWC Sevens 2018</span>
-            <span class="tc-tag">Athletes Rights Champion</span>
-            <span class="tc-tag">NGO Bureau Registered</span>
-          </div>
-          <div class="tc-links">
-            <a href="https://x.com/ivan_magomu" target="_blank" rel="noopener" class="tc-link x-link" title="X / Twitter">𝕏</a>
-            <a href="https://www.linkedin.com/in/magomu-ivan-73aa0b206/" target="_blank" rel="noopener" class="tc-link" title="LinkedIn">in</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- TEAM MEMBER 2 -->
-      <div class="team-card ru">
-        <div class="tc-top tc-top-bg-2">
-          <div class="tc-initials">PM</div>
-          <div class="tc-role-tag">Programmes Director</div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">[Programmes Director]</div>
-          <div class="tc-position">Head of Education &amp; Life-Skills</div>
-          <p class="tc-bio">Placeholder — add your Programmes Director's name, background, and credentials here. This person oversees all four impact tracks and community partnerships across Mbale.</p>
-          <div class="tc-tags">
-            <span class="tc-tag">Education</span>
-            <span class="tc-tag">Programme Management</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- TEAM MEMBER 3 -->
-      <div class="team-card ru">
-        <div class="tc-top tc-top-bg-3">
-          <div class="tc-initials">CO</div>
-          <div class="tc-role-tag">Community Outreach</div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">[Community Officer]</div>
-          <div class="tc-position">Gender &amp; Inclusion Lead</div>
-          <p class="tc-bio">Placeholder — add your Gender &amp; Inclusion Officer's details here. This role leads girls' camps, women's livelihood training, and PWD outreach across Mbale and Bulambuli districts.</p>
-          <div class="tc-tags">
-            <span class="tc-tag">Gender Equality</span>
-            <span class="tc-tag">PWD Inclusion</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- TEAM MEMBER 4 -->
-      <div class="team-card ru">
-        <div class="tc-top tc-top-bg-4">
-          <div class="tc-initials">SC</div>
-          <div class="tc-role-tag">Sports Coordinator</div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">[Sports Coordinator]</div>
-          <div class="tc-position">Grassroots Sports &amp; Talent Lead</div>
-          <p class="tc-bio">Placeholder — add your Sports Coordinator's profile here. This person runs the rugby academies, coaching clinics, and talent development pipeline for young athletes across Mbale City.</p>
-          <div class="tc-tags">
-            <span class="tc-tag">Rugby Coaching</span>
-            <span class="tc-tag">Talent Development</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- TEAM MEMBER 5 -->
-      <div class="team-card ru">
-        <div class="tc-top tc-top-bg-5">
-          <div class="tc-initials">JA</div>
-          <div class="tc-role-tag">Justice &amp; Advocacy</div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">[Justice Officer]</div>
-          <div class="tc-position">Juvenile Justice &amp; Child Rights Lead</div>
-          <p class="tc-bio">Placeholder — add your Justice &amp; Advocacy Officer's details here. This role handles legal aid, counselling referrals, and restorative justice support for children and families affected by abuse or neglect.</p>
-          <div class="tc-tags">
-            <span class="tc-tag">Child Rights</span>
-            <span class="tc-tag">Rehabilitation</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- JOIN US PLACEHOLDER -->
-      <div class="team-card team-placeholder ru">
-        <div class="ph-inner">
-          <span class="ph-icon">➕</span>
-          <div class="ph-label">Join Our Team</div>
-          <p class="ph-sub">We are growing. See open<br>volunteer &amp; staff roles.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CTA BELT -->
-<div class="cta-belt">
-  <h2>Together We Raise a<br><em>Stronger Generation</em></h2>
-  <p>Join us in restoring hope, empowering communities, and building resilient young leaders across Mbale City and beyond.</p>
-  <a href="#donate" class="btn-fire">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-    Become a Donor Today
-  </a>
-</div>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="ft-inner">
-    <div class="ft-grid">
-      <div class="ft-brand">
-        <a href="#home" class="logo-wrap">
-          <div class="logo-mark">HN</div>
-          <div class="logo-text">Hope for the Next Generation<small>Rehabilitation · Innovation · Sports · Education</small></div>
-        </a>
-        <p>A community-driven NGO empowering vulnerable children, youth, girls, and families in Mbale City, Uganda through education, sports, advocacy, and sustainable innovation.</p>
-        <div class="ft-socials">
-          <a href="#" class="soc-btn" aria-label="Facebook">f</a>
-          <a href="#" class="soc-btn" aria-label="X / Twitter">𝕏</a>
-          <a href="#" class="soc-btn" aria-label="Instagram">ig</a>
-          <a href="#" class="soc-btn" aria-label="YouTube">▶</a>
-          <a href="#" class="soc-btn" aria-label="LinkedIn">in</a>
-        </div>
-      </div>
-      <div class="ft-col">
-        <h4>Programmes</h4>
-        <ul>
-          <li><a href="#education">Education &amp; Life-Skills</a></li>
-          <li><a href="#sports">Grassroots Sports</a></li>
-          <li><a href="#advocacy">Advocacy &amp; Justice</a></li>
-          <li><a href="#gender">Gender &amp; Inclusion</a></li>
-          <li><a href="#community">Community Innovation</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h4>Organisation</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#founder">Word from the Founder</a></li>
-          <li><a href="#team">Our Team</a></li>
-          <li><a href="#trust">Annual Reports</a></li>
-          <li><a href="#partners">Partners</a></li>
-          <li><a href="#volunteer">Volunteer</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="ft-nl">
-        <h4>Stay Connected with Our Impact</h4>
-        <p>Get quarterly impact updates, programme news, and stories of transformation delivered to your inbox.</p>
-        <div class="nl-form">
-          <input class="nl-input" type="email" placeholder="Your email address">
-          <button class="nl-btn">Subscribe</button>
-        </div>
-        <div class="ft-contact">
-          📍 Mbale City, Uganda<br>
-          📞 +256 7XX XXX XXX<br>
-          ✉️ info@hopethenextgeneration.org
-        </div>
-      </div>
-    </div>
-    <div class="ft-bottom">
-      <div class="ft-badges">
-        <div class="reg-badge">Registered NGO · Uganda</div>
-        <div class="reg-badge">NGO Bureau Certified</div>
-        <div class="reg-badge">Child-Safe Organisation</div>
-      </div>
-      <div class="ft-copy">© 2025 Hope for the Next Generation. All rights reserved.<a href="#">Privacy</a><a href="#">Terms</a></div>
-    </div>
+  <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.9rem; opacity: 0.6;">
+    &copy; 2025 Hope for the Next Generation. All rights reserved.
   </div>
 </footer>
 
 <script>
-/* Nav scroll */
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>50));
+  let currentFreq = 'once';
+  let currentAmt = 25;
 
-/* Burger */
-document.getElementById('burger').addEventListener('click',function(){
-  const m=document.querySelector('.nav-menu');
-  const open=m.style.display==='flex';
-  m.style.cssText=open?'':'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(5,24,13,.97);padding:24px 5%;gap:18px;z-index:899;backdrop-filter:blur(14px)';
-});
+  function setFreq(freq, btn) {
+    currentFreq = freq;
+    document.querySelectorAll('.freq-toggle .btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
 
-/* Scroll animations */
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.ru').forEach(el=>obs.observe(el));
+  function setAmt(amt, btn) {
+    currentAmt = amt;
+    document.querySelectorAll('.amt-grid .amt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
 
-/* Counter */
-const cObs=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.s-card').forEach(card=>{
-        const t=parseInt(card.querySelector('.s-num').dataset.t),c=card.querySelector('.c');
-        let s=0;const step=t/(1600/16);
-        const iv=setInterval(()=>{s=Math.min(s+step,t);c.textContent=Math.round(s).toLocaleString();if(s>=t)clearInterval(iv)},16);
-      });
-      cObs.unobserve(e.target);
-    }
-  });
-},{threshold:.25});
-const sg=document.querySelector('.stats-row');if(sg)cObs.observe(sg);
-
-/* Bar chart */
-const bObs=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.br-fill').forEach(b=>b.style.width=b.dataset.w);
-      bObs.unobserve(e.target);
-    }
-  });
-},{threshold:.2});
-const cb=document.querySelector('.chart-block');if(cb)bObs.observe(cb);
-
-/* Donation widget */
-let freq='once',amt=25,selAmt=document.querySelector('.ab.on'),selPay=document.querySelector('.pm-btn.on');
-const previews={
-  once:{25:'<strong>Your $25 one-time gift</strong> provides school materials for one child — a direct step toward breaking the cycle of poverty in Mbale.',50:'<strong>Your $50 one-time gift</strong> funds community sports equipment and one month of life-skills coaching for a young athlete.',100:'<strong>Your $100 one-time gift</strong> sponsors a girl\'s empowerment camp plus a vocational workshop for a woman rebuilding her livelihood.',def:(a)=>`<strong>Your $${a} one-time gift</strong> makes a powerful direct difference to vulnerable children and families in Mbale City.`},
-  monthly:{25:'A <strong>monthly gift of $25</strong> continuously sustains school learning materials for a child every term throughout the year.',50:'A <strong>monthly gift of $50</strong> funds a dedicated rehabilitation counsellor and grassroots sports sessions each and every month.',100:'A <strong>monthly gift of $100</strong> fully sponsors one girl through our year-round empowerment programme — camp, skills, and mentorship.',def:(a)=>`A <strong>monthly gift of $${a}</strong> provides sustained, year-round support to vulnerable children and communities in Mbale City.`}
-};
-function getMsg(a,f){const m=previews[f];return m[a]||m.def(a)}
-function setFreq(f){freq=f;document.getElementById('fq-once').classList.toggle('on',f==='once');document.getElementById('fq-monthly').classList.toggle('on',f==='monthly');refreshPreview()}
-function pickAmt(a,btn){amt=a;if(selAmt)selAmt.classList.remove('on');btn.classList.add('on');selAmt=btn;document.getElementById('cw').classList.remove('show');refreshPreview()}
-function showCustom(btn){if(selAmt)selAmt.classList.remove('on');btn.classList.add('on');selAmt=btn;document.getElementById('cw').classList.add('show');document.getElementById('ci').focus();refreshPreview()}
-function refreshPreview(){const cv=parseInt(document.getElementById('ci').value);const a=document.getElementById('cw').classList.contains('show')&&cv>0?cv:amt;document.getElementById('prev').innerHTML=getMsg(a,freq)}
-function pickPay(btn){if(selPay)selPay.classList.remove('on');btn.classList.add('on');selPay=btn}
-function goDonate(){const cv=parseInt(document.getElementById('ci').value);const a=document.getElementById('cw').classList.contains('show')&&cv>0?cv:amt;const pm=selPay?selPay.textContent.trim():'Card';alert(`Thank you! ${freq==='monthly'?'Monthly':'One-time'} gift of $${a} via ${pm}.\n\nIn production, connect this button to your Stripe / PayPal / Flutterwave / Pesapal gateway.`)}
-
-/* Smooth scroll */
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+  function processDonation() {
+    alert(`Initiating ${currentFreq} donation of $${currentAmt}. Thank you for supporting HNG!`);
+  }
 </script>
 </body>
 </html>
